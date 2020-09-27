@@ -1,0 +1,20 @@
+
+	<div class="detail_recommend">
+		<div class="homepage_top">
+			<span class="top_titel"><h1>More Like This</h1></span>
+		</div>
+		<div class="main-carousel-similar">
+			<% for(var i=0; i<(detailmovData.similar).length; i++) {%>
+				<div class="carousel-cell">
+					<a href="/movie/<%=detailmovData.similar[i].id%>">
+						<% if( detailmovData.similar[i].poster_path != null ){ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=detailmovData.similar[i].poster_path%>" class="poster_movie" alt="placeholder">
+						<% } else{ %>
+							<img src="https://dummyimage.com/180x270/ffffff/000000" alt="placeholder">
+						<% } %>
+					</a>
+				</div>
+			<% } %>
+		</div>
+	</div>
+

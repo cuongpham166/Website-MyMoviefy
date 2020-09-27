@@ -1,0 +1,63 @@
+<%- include ('../partials/header.ejs');  -%>
+
+
+<div class="detail_wrapper">
+	<div class="latest_section--left">
+
+		<div class="latest_wrapper">
+			<h1 class="info_titel info_txt">Popular TV Shows</h1>
+			<div class="form-group">
+				<label for="mySelect">Number of results per page</label>
+					<select class="form-control" id="mySelect" onchange="myFunction()">
+					    <option value = "<%=populartvData.length%>" selected='selected'>All</option>
+					    <% for(var i=4; i < 11;i+=2){ %>
+						<option value = <%=i%> > <%=i%> </option>
+						<%}%>  
+					</select>
+			</div>
+		</div>
+
+		<div class="latest1">
+
+		<% for(var i=0; i<populartvData.length; i++) {%>
+		<a href="/tv/<%=populartvData[i].id%>" class="movie_card">
+			<div class="latest_card paginate">
+				<div class="latest_card_wrapper">
+						<% if( populartvData[i]. poster_path == null ){ %>
+							<img src="https://dummyimage.com/185x278/ffffff/000000" alt="placeholder">
+						<% } else{ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=populartvData[i]. poster_path%>" alt="placeholder">
+						<% } %>
+					<div class="latest_info">
+						<h2 class="latest_card_titel"><%=populartvData[i].name%></h2>
+						<p class="latest_card_overview"><%=populartvData[i].overview%></p>						
+					</div>
+				</div>
+			</div>
+		</a>
+		<% } %>	
+		</div>
+		
+		<div id="page-nav_wrapper">
+			<div id="page-nav"></div>
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include ('../partials/footerpag.ejs');  -%>

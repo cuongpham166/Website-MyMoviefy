@@ -1,0 +1,104 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<!--<div class="crew_top">
+	<div class="crew_wrapper detail_wrapper tvdetail_img">
+		<% if( detailseasonData.poster_path != null){ %>
+			<img src="https://image.tmdb.org/t/p/w500/<%=detailseasonData.poster_path%>" alt="placeholder" class="poster_movie_crew">
+		<% } else{ %>
+			<img src="https://dummyimage.com/165x247.5/ffffff/000000" alt="placeholder">
+		<% } %>
+		<div class="crew_info">
+			<h1 class="info_titel info_txt"><%=detailseasonData.name%></h1>
+			<h3 class="info_subtxt info_txt season_detail_subtxt"><%=detailseasonData.air_date%></h3>
+			<a href="/tv/<%=detailtvData.id%>/seasons" class="crew_back info_txt"><i class="fas fa-long-arrow-alt-left"></i> Back to season list</a>
+		</div>
+	</div>
+</div>-->
+
+
+<div class="crew_wrapper1 detail_wrapper">
+	<div class="latest_wrapper">
+		<h1 class="info_titel info_txt"><%=detailseasonData.name%></h1>
+		<div class="form-group">
+			<label for="mySelect">Number of results per page</label>
+				<select class="form-control" id="mySelect" onchange="myFunction()">
+					<option value = "<%=detailseasonData.episodes.length%>" selected='selected'>All</option> 
+					<% for(var i=1; i < 5;i++){ %>
+						<option value = <%=i%> > <%=i%> </option>
+					<%}%>  
+				</select>
+		</div>
+	</div>
+
+	<% for(var i=0; i<detailseasonData.episodes.length; i++) {%>
+		<div class="tvdetail_season tvdetail_season_card paginate">
+			<div class="tvdetail_wrapper">
+				<div class="tvdetail_img seasons_detail">
+					<h2>Episode <%=detailseasonData.episodes[i].episode_number%></h2>
+					<a href="#">
+						<% if( detailseasonData.episodes[i].still_path != null){ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=detailseasonData.episodes[i].still_path%>" alt="placeholder">
+						<% } else{ %>
+							<img src="https://dummyimage.com/227x127/ffffff/000000" alt="placeholder">
+						<% } %>
+					</a>
+					<h3><%=detailseasonData.episodes[i].air_date%></h3>
+
+				</div>
+				<div class="tvdetail_info">
+					<h1><%=detailseasonData.episodes[i].name%></h1>
+					<p><%=detailseasonData.episodes[i].overview%></p>
+				</div>
+			</div>
+		</div>
+	<% } %>
+	<div id="page-nav_wrapper">
+		<div id="page-nav"></div>
+	</div>
+
+	<div class="crew_section">
+		<h1 class="section_title">Cast (<%=detailseasonData.cast.length%>)</h1>
+		<div class="section_wrapper">
+			<% for(var i=0; i<detailseasonData.cast.length; i++) {%>
+				<div class="section_container">
+						<a href="#">
+							<% if( detailseasonData.cast[i].profile_path != null){ %>
+								<img src="https://image.tmdb.org/t/p/w500/<%=detailseasonData.cast[i].profile_path%>" alt="placeholder" class="profile_img">
+							<% } else{ %>
+								<img src="https://dummyimage.com/75x112.5/ffffff/ffffff" alt="placeholder">
+							<% } %>
+						</a>
+						<div class="section_info">
+							<a href="#" class="info_txt crew_name"><%=detailseasonData.cast[i].name%></a>
+							<h3 class="crew_subtxt"><%=detailseasonData.cast[i].character%></h3>
+						</div>
+				</div>
+			<% } %>
+		</div>
+	</div>
+
+	<div class="crew_section">
+		<h1 class="section_title">Crew (<%=detailseasonData.crew.length%>)</h1>
+		<div class="section_wrapper">
+		<% for(var i=0; i<detailseasonData.crew.length; i++) {%>
+			<div class="section_container">
+				
+					<a href="#">
+						<% if( detailseasonData.crew[i].profile_path != null){ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=detailseasonData.crew[i].profile_path%>" alt="placeholder" class="profile_img">
+						<% } else{ %>
+							<img src="https://dummyimage.com/75x112.5/ffffff/ffffff" alt="placeholder">
+						<% } %>
+					</a>
+					<div class="section_info">
+						<a href="#" class="info_txt crew_name"><%=detailseasonData.crew[i].name%></a>
+						<h3 class="crew_subtxt"><%=detailseasonData.crew[i].job%></h3>
+					</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+
+</div>
+
+<%- include ('../partials/footerpag.ejs');  -%>

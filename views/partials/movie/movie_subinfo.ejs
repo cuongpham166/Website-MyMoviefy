@@ -1,0 +1,21 @@
+<ul class="subinfo_list">
+    <li class="subinfo_content">
+        <i class="fas fa-calendar-day fas-fw subinfo_icon"></i>
+        <h4 class="subinfo_text"><%=detailmovData.release_date%></h4>
+    </li>
+
+    <% if(detailmovData.runtime > 0){ %>	
+        <li class="subinfo_content">
+            <i class="fas fa-clock sub fas-fw subinfo_icon"></i>
+            <h4 class="subinfo_text"><%=detailmovData.runtime%> mins</h4>
+        </li>
+    <% } %>	
+
+    <% if( (detailmovData.genres).length != 0){ %>
+        <li class="subinfo_content">
+            <% for(var i=0; i<detailmovData.genres.length; i++) {%>
+                <a class="subinfo_genre" href="/genre/<%=detailmovData.genres[i].id%>/movie"><%=detailmovData.genres[i].name%></a>
+            <% } %>
+        </li>
+    <% } %>	
+</ul>

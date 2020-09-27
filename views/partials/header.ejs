@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moviefy</title>
+	<link rel="icon" type="image/svg+xml" href="/image/icon.svg" sizes="any" >
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/navbar.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/simplePagination.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/homepage.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/detail.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/preloader.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/crew.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/latest.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/keyword.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/tv_detail.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/review.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/comment.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/news.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/rank.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/forum.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/modal.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/discover.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/profile.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/clamp.js"></script>
+	
+</head>
+<body>
+
+	<%- include ('preloader.ejs');  -%>
+	<%- include ('navbar.ejs');  -%>
+	<%- include ('searchbar.ejs');  -%>
+	
+	<div class="flash-message-container">
+		<% if(error && error.length>0){ %>
+			<div class="alert alert-danger">
+				<%=error%>
+			</div>
+		<%}%>
+
+		<% if(success && success.length > 0){%>
+			<div class="alert alert-success">
+				<%=success%>
+			</div>
+		<%}%>
+	</div>

@@ -1,0 +1,14 @@
+			<div class="fact_genre fact_section">
+				<div class="fact_wrapper">
+					<h2 class="fact_titel fact_titel1 info_txt">Genres</h2>
+					<div class="fact_link genre_link">
+						<% if( (detailtvData.genres).length != 0){ %>
+							<% for(var i=0; i<detailtvData.genres.length; i++) {%>
+							<a href="/genre/<%=detailtvData.genres[i].id%>/tv"><%=detailtvData.genres[i].name%></a>
+							<% } %>
+						<% } else{ %>
+							<h3 class="blank_txt">No genres have been added.</h3>
+						<% } %>
+					</div>
+				</div>
+			</div>

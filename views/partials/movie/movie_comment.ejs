@@ -1,0 +1,88 @@
+<div class="comment_section">
+	<div class="homepage_top">
+		<span class="top_titel"><h1>User Comments</h1></span>
+	</div>
+
+	<% if(!currentUser){ %>
+		<div class="comment_section--button">
+			<h3>Log in or sign up to leave or like a comment</h3>
+			<div class="topic_btn_container">
+				<a href="/login">Login</a>
+				<a href="/register">Sign Up</a>
+			</div>
+		</div>
+	<% } else{ %>
+		<div class="comment_container">
+			<form class="comment_form">
+				<input type="text" name="comment" id="comment_text" placeholder="Your comment...." required>
+			</form>
+			<input id="comment_button" type="submit" value="Send">
+		</div>
+	<% } %>
+
+	<ul id="comment_content_container">
+
+		<%for (i=detailmovData.userReview.length-1;i>=0;i--){%>
+			<li class="comment_content" data-comment-id="<%=detailmovData.userReview[i]._id%>">
+				<div class="content_section--top">
+					<h3 class="comment_author">@<%=detailmovData.userReview[i].author.username%></h3>
+					<h3 class="comment_date"><%=moment(detailmovData.userReview[i].postedAt).fromNow()%></h3>
+				</div>
+				<div class="content_section--middle">
+					<p class="comment_paragraph" contenteditable="false"><%=detailmovData.userReview[i].text%></p>
+					<div class="comment_like_count">
+						<i class="fas fa-heart like_icon tooltip"></i>
+						<h3 class="like_number tooltip"><%=detailmovData.userReview[i].like.length%></h3>
+						<div class="like_list"></div>
+					</div>
+				</div>
+				<hr class="hr_comment">
+				<div class="content_section--bottom">
+					<% if(currentUser){ %>
+						<div class="like_button">
+							<div class="button_container">
+								<i class="fas fa-heart fa-fw like_button_icon"></i>
+								<h4 class="like_button_text">Like</h4>
+							</div>
+						</div>
+					<%}else{%>
+						<a href="/login">
+							<div class="like_button">
+								<div class="button_container">
+									<i class="fas fa-heart fa-fw like_button_icon"></i>
+									<h4 class="like_button_text">Like</h4>
+								</div>
+							</div>	
+						</a>						
+					<% } %>
+							
+						
+					
+					<% if(currentUser){ %>
+						<div class="edit_button">
+							<div class="button_container">
+								<i class="fas fa-pen fa-fw edit_button_icon"></i>
+								<h4 class="edit_button_text">Edit</h4>
+							</div>
+						</div>
+						<div class="delete_button">
+							<div class="button_container">
+								<i class="fas fa-trash fa-fw delete_button_icon"></i>
+								<h4 class="delete_button_text">Delete</h4>
+							</div>
+						</div>
+						<div class="save_button">
+							<div class="button_container">
+								<i class="fas fa-save save_button_icon"></i>
+								<h4 class="save_button_text">Save</h4>
+							</div>
+						</div>
+					<% } %>
+
+				</div>
+			</li>
+
+		<%}%>
+
+	</ul>
+</div>

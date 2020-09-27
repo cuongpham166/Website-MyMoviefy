@@ -1,0 +1,97 @@
+:root {
+	--pink:#EB2188;
+	--blue:#080A52;
+	--orange:#FF7533;
+	--white:#FFFFFF;
+	--darkgray:#141414;
+	/*--black:#000000;*/
+	--black:#0F0F0F;
+	--semitransparent:rgba(0, 0, 0, 0.5);
+
+	--movieColor:#E8D1D1;
+	--tvColor:#FFFFE6;
+	--peopleColor:#FFB3B3;
+	
+	--gray:	#585858;
+	--red: #FF0000;
+	--yellow:#FFC100;
+	--green:#005600;
+
+	--lineHeight: 1.6;
+
+	--h1:1.5em;
+	--h2:1.3em;
+	--h3:1em;
+	--h4:0.9em;
+
+	--maxWidth-nav:1200px;
+	--maxWidth-div:1000px;
+
+	--margin-center:0 auto;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	padding:0;
+	margin:0;
+	/*background-image: url("/image/background.jpg");*/
+	background-color: var(--black);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+}
+
+.divider {
+  flex-grow: 1;
+  border-bottom: 2px var(--orange) solid;
+  margin: 3px
+}
+
+/*.form-group{
+	text-align: center;
+	margin:10px 0;
+}*/
+
+label{
+	color:var(--white);
+	line-height: var(--lineHeight);
+	font-size: var(--h3);
+	margin-right:5px;
+}
+
+select#mySelect {
+    padding: 5px 15px;
+    color: var(--white);
+    border-radius: 10px;
+    background-color: var(--darkgray);
+    border: 2px var(--yellow) solid;
+    text-align-last: center;
+    outline: none;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+input#comment_text::placeholder { 
+	color: var(--darkgray);
+	font-weight: bold;
+}
+
+i.fas.fa-heart,i.fas.fa-heart-broken {
+    padding: 2px;
+}
+
+div#page-nav_wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:20px 0 20px 0;
+}

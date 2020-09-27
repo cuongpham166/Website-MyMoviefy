@@ -1,0 +1,42 @@
+<div class="info_button">
+	<div class="button_btn">
+
+		<div class="tooltip">
+			<% if(!currentUser){ %>
+				<a href="/login" target="_blank"><i class="fas fa-clipboard-list fa-fw unchecked"></i></a>
+				<span class="tooltiptext">Login to create and edit custom lists</span>
+			<% } else{ %>	
+				<a href="javascript:void(0)" id="modalBtn"><i class="fas fa-clipboard-list fa-fw unchecked"></i></a>
+				<span class="tooltiptext">Save to....</span>
+			<% } %>			
+		</div>
+
+		<div class="tooltip">
+			<% if(!currentUser){ %>
+				<a href="/login" target="_blank"><i class="fas fa-star fa-fw unchecked" id="favorite_icon"></i></a>
+				<span class="tooltiptext">Login to add this tv show to your favorite list</span>
+			<% } else{ %>
+				<a href="javascript:void(0)" id="tv_favorite"><i class="fas fa-star fa-fw" id="favoritetv_icon"></i></a>
+				<span class="tooltiptext" id="favoritetooltiptv"></span>
+			<% } %>
+		</div>
+
+		
+		<div class="tooltip">
+			<% if(!currentUser){ %>
+				<a href="/login" target="_blank"><i class="fas fa-bookmark fa-fw unchecked" id="watchlist_icon"></i></a>
+				<span class="tooltiptext">Login to add this tv show to your watchlist</span>
+			<% } else{ %>
+				<a href="javascript:void(0)" id="tv_watchlist"><i class="fas fa-bookmark fa-fw" id="watchlisttv_icon"></i></a>
+				<span class="tooltiptext" id="watchlisttooltiptv"></span>
+			<% } %>
+		</div>
+
+		<div class="tooltip">
+			<a href="javascript:void(0)"><i class="fas fa-play fa-fw unchecked" id="trailer_btn"></i></a>
+				<span class="tooltiptext">Watch Trailer</span>
+		</div>
+
+
+	</div>
+</div>

@@ -1,0 +1,223 @@
+<%- include ('../partials/header.ejs');  -%>
+
+
+<div class="homepage_container">
+	<div class="homepage_slideshow">
+		<div class="main-carousel-top">
+			<% for(var i=0; i<7; i++) {%>
+			<a href="/movie/<%=topSectionData[i].id%>" class="carousel-cell single">
+				<div>
+					<img src="https://image.tmdb.org/t/p/original/<%=topSectionData[i].backdrop_path%>" class="slideshow_img">
+					<div class="img_overlay">
+						<h1 class="overlay_text overlay_txt"><%=topSectionData[i].title%></h1>
+					</div>
+				</div>
+			</a>
+			<% } %>	
+		</div>
+	</div>
+
+
+	<div class="homepage_wrapper">
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/toprated/movie" target="_blank"><h1>Top Rated</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>Top rated TV shows and movies just for you</h3></div>
+
+			<div class="main-carousel-toprated">
+				<% for(var i=0; i<topratedmovData.length; i++) {%>
+					<div class="carousel-cell">
+						<a href="/movie/<%=topratedmovData[i].id%>">
+							<div class="toprated_card">
+								<img src="https://image.tmdb.org/t/p/w500/<%=topratedmovData[i].backdrop_path%>" class="toprated_img" alt="placeholder">
+								<div class="card_section--bottom">
+									<h4 class="toprated_card_title"><%=topratedmovData[i].title%></h4>
+									<h4 class="toprated_card_score"><i class="fas fa-star"></i> <%=topratedmovData[i].vote_average%></h4> 
+								</div>
+							</div>
+						</a>
+					</div>
+				<% } %>
+			</div>
+
+			
+			<div class="homepage_list_container">
+				<ul class="homepage_list">
+					<li class="list_content" data-list-content="movie">Movie</li>
+					<li class="list_content" data-list-content="tv">Shows</li>	
+				</ul>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/trending/movie" target="_blank"><h1>Trending</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>Explore trending TV shows and movies on Moviefy</h3></div>
+			<div class="main-carousel-trending">
+				<% for(var i=0; i<trendmovData.length; i++) {%>
+					<div class="carousel-cell">
+						<a href="/movie/<%=trendmovData[i].id%>">
+							<img src="https://image.tmdb.org/t/p/w500/<%=trendmovData[i].poster_path%>" class="poster_movie" alt="placeholder">
+						</a>
+					</div>
+				<% } %>
+			</div>
+			<div class="homepage_list_container">
+				<ul class="homepage_list">
+					<li class="list_content" data-list-content="movie">Movie</li>
+					<li class="list_content" data-list-content="tv">Shows</li>	
+				</ul>
+			</div>
+		</div>
+
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/news" target="_blank"><h1>Top News</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>News, interviews, the best and worst movie headlines</h3></div>
+			<div class="main-carousel-news">
+				<% for(var i=0; i<newsData.length; i++) {%>
+					<div class="carousel-cell">
+						<a href="<%=newsData[i].url%>">
+							<div class="topnews_card">
+								<div class="topnews_card_container">
+									<img src="<%=newsData[i].img%>" class="news_thumb" alt="placeholder">
+									<div class="topnews_card--bottom">
+										<p class="topnews_txt" style="overflow:hidden;"><%=newsData[i].title%></p>
+										<h4 class="topnews_date"><%=newsData[i].date%></h4>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				<% } %>
+			</div>
+		</div>
+
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/best/netlifx" target="_blank"><h1>Explore what’s streaming</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>Explore best choices on streaming services</h3></div>
+			<div class="main-carousel-bestmovie">
+				<% for(var i=0; i<2; i++) {%>
+				<div class="carousel-cell">
+					<a href="/best/hulu">
+						<div class="streaming_logo"><img src="/image/hulu.svg" class="streaming_img"></div>
+					</a>
+				</div>
+				<div class="carousel-cell">
+					<a href="/best/netlifx">
+						<div class="streaming_logo"><img src="/image/netflix.svg" class="streaming_img"></div>
+					</a>
+				</div>
+				<div class="carousel-cell">
+					<a href="/best/prime">
+						<div class="streaming_logo"><img src="/image/prime.svg" class="streaming_img"></div>
+					</a>
+				</div>
+				<div class="carousel-cell">
+					<a href="/best/itunes">
+						<div class="streaming_logo"><img src="/image/apple-itunes.svg" class="streaming_img"></div>
+					</a>
+				</div>
+				<% } %>
+			</div>
+		</div>
+
+
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/popular/movie" target="_blank"><h1>What to watch</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>Today's popular TV shows and movies</h3></div>
+			<div class="main-carousel-popular">
+				<% for(var i=0; i<popmovData.length; i++) {%>
+					<div class="carousel-cell">
+						<a href="/movie/<%=popmovData[i].id%>">
+							<div class="toprated_card">
+								<img src="https://image.tmdb.org/t/p/w500/<%=popmovData[i].backdrop_path%>" class="toprated_img" alt="placeholder">
+								<div class="card_section--bottom">
+									<h4 class="toprated_card_title"><%=popmovData[i].title%></h4>
+									<h4 class="toprated_card_score"><i class="fas fa-vote-yea"></i> <%=popmovData[i].vote_count%></h4> 
+								</div>
+							</div>
+						</a>
+					</div>
+				<% } %>
+			</div>
+			<div class="homepage_list_container">
+				<ul class="homepage_list">
+					<li class="list_content" data-list-content="movie">Movie</li>
+					<li class="list_content" data-list-content="tv">Shows</li>	
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/upcoming" target="_blank"><h1>In theaters</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>Upcoming movies in theatres</h3></div>
+			<div class="main-carousel-upcoming">
+				<% for(var i=0; i<upcomData.length; i++) {%>
+					<div class="carousel-cell">
+						<a href="/movie/<%=upcomData[i].id%>">
+							<img src="https://image.tmdb.org/t/p/w500/<%=upcomData[i].poster_path%>" class="poster_movie1" alt="placeholder">
+						</a>
+					</div>
+				<% } %>
+			</div>
+		</div>
+
+
+		<div class="trending homepage_section">
+			<div class="homepage_top">
+				<span class="top_titel"><a href="/ontheair" target="_blank"><h1>On TV</h1></a></span>
+			</div>
+			<div class="homepage_subtext"><h3>The best TV shows currently on the air </h3></div>
+			<div class="main-carousel-ontheair">
+				<% for(var i=0; i<ontheairData.length; i++) {%>
+					<div class="carousel-cell">
+						<a href="/tv/<%=ontheairData[i].id%>">
+							<img src="https://image.tmdb.org/t/p/w500/<%=ontheairData[i].poster_path%>"class="poster_movie"  alt="placeholder">
+						</a>
+					</div>
+				<% } %>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+<div>
+
+
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+	<script type="text/javascript" src="/js/flickity.js"></script> 
+	<script type="text/javascript" src="/js/homepageLogic.js"></script> 
+
+
+
+
+
+<%- include ('../partials/footer.ejs');  -%>

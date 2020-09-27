@@ -1,0 +1,185 @@
+<header>
+		<div class="Logo_wrapper">
+			<a href="/" class="Logo">
+				<!--<img src="/image/Moviefy_horizontal_transparent.svg">-->
+				<img src="/image/Moviefy_logo.svg">
+			</a>
+		</div>
+
+		<div class="menu-toggle"></div>
+
+		<nav>
+			<ul>
+				<li class="dropdown">
+					<a href="/popular/movie">
+						<div class="name">Movie</div>
+					</a>
+					<div class="dropdown-content">
+						<span class="dropdown-item">
+							<a href="/nowplaying">Now Playing</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/trending/movie">Top Trending</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/popular/movie">Popular</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/upcoming">Upcoming</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/toprated/movie">Top Rated</a>
+						</span>
+					</div>	
+				</li>
+
+				<li class="dropdown">
+					<a href="/popular/tv">
+						<div class="name">TV Show</div>
+					</a>
+					<div class="dropdown-content">
+
+						<span class="dropdown-item">
+							<a href="/airingtoday">Airing Today</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/ontheair">On The Air</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/trending/tv">Top Trending</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/popular/tv">Popular</a>
+						</span>
+
+						<span class="dropdown-item">
+							<a href="/toprated/tv">Top Rated</a>
+						</span>
+
+					</div>	
+				</li>
+				
+				<li class="dropdown">
+					<a href="/discover">
+						<div class="name">Discover</div>
+					</a>
+					<div class="dropdown-content">
+						<span class="dropdown-item">
+							<a href="/discover/movie">Movie</a>
+						</span>
+						<span class="dropdown-item">
+							<a href="/discover/tv">TV Show</a>
+						</span>
+					</div>
+				</li>
+
+				<!--<li class="dropdown">
+					<a href="/news/box-office">
+						<div class="name">Info</div>
+					</a>
+					<div class="dropdown-content">
+						<span class="dropdown-item">
+							<a href="/news/box-office">Box Office</a>
+						</span>
+					</div>
+				</li>-->
+
+
+
+				<li class="dropdown">
+					<a href="/rank/imdb">
+						<div class="name">Information</div>
+					</a>	
+					<div class="dropdown-content">
+						<span class="dropdown-item">
+							<a href="/news/box-office">Box Office</a>
+						</span>
+						<span class="dropdown-item">
+							<a href="/rank/imdb">IMDb Chart</a>
+						</span>
+						<span class="dropdown-item">
+							<a href="/rank/metacritic">Metacritic Chart</a>
+						</span>
+						<span class="dropdown-item">
+							<a href="/rank/rotten-tomatoes">Rotten Tomatoes Chart</a>
+						</span>
+					</div>				
+				</li>
+
+
+
+				<li class="dropdown">
+					<a href="/news">
+						<div class="name">News</div>
+					</a>
+					<div class="dropdown-content">
+						<span class="dropdown-item">
+							<a href="/news">News & Interviews</a>
+						</span>
+						<span class="dropdown-item">
+							<a href="/news/headlines">Top Headlines</a>
+						</span>
+						<span class="dropdown-item">
+							<a href="/news/weekly-roundup">Weekly Roundup</a>
+						</span>
+
+					</div>
+				</li>
+
+
+				<li >
+					<a href="/forum/topic">
+						<div class="name">Forum</div>
+					</a>
+				</li>
+
+				<li onclick="openSearch()">
+					<a href="#">
+						<div class="name">Search</div>
+					</a>
+						
+				</li>
+				<% if(!currentUser){ %>
+					<li>
+						<a href="/login">
+							<div class="name">Login</div>
+						</a>
+					</li>
+				<% } else { %>
+					<li class="dropdown">
+						<a href="#">
+							<div class="name">My Account</div>
+						</a>
+						<div class="dropdown-content">
+							<span class="dropdown-item">
+								<a href="/profile/<%=currentUser._id%>">Dashboard</a>
+							</span>
+							<span class="dropdown-item">
+								<a href="/logout">Logout</a>
+							</span>
+						</div>	
+					</li>
+				<% } %>
+			</ul>
+		</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="clearFix"></div>
+	</header>

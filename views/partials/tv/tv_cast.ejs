@@ -1,0 +1,26 @@
+	<div class="detail_cast">
+		<div class="homepage_top">
+			<span class="top_titel"><h1>Featured Cast</h1></span>
+		</div>
+		<div class="main-carousel-crew">
+		<% for(var j=0; j<2; j++) {%>
+			<% for(var i=0; i<(detailtvData.cast).length; i++) {%>
+				<div class="carousel-cell">
+					<a href="#">
+						<% if( detailtvData.cast[i].profile_path == null ){ %>
+							<img src="https://dummyimage.com/200x300/ffffff/000000" alt="placeholder">
+						<% } else{ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.cast[i].profile_path%>" class="poster_movie" alt="placeholder">
+						<% } %>
+					</a>
+					<div class="card_name">
+						<h3 class="card_txt info_txt cast_name"><%=detailtvData.cast[i].name%></h3>
+					</div>
+				</div>
+			<% } %>
+		<% } %>
+		</div>
+		<div class="detail_bottom">
+			<a href="/tv/<%=detailtvData.id%>/crew" class="info_txt">Full Cast & Crew</a>
+		</div>
+	</div>

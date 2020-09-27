@@ -1,0 +1,107 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="crew_top">
+	<div class="crew_wrapper detail_wrapper">
+		<% if( detailtvData.poster_path != null){ %>
+			<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.poster_path%>" class="poster_movie_crew" alt="placeholder">
+		<% } else{ %>
+			<img src="https://dummyimage.com/150x250/ffffff/000000" alt="placeholder">
+		<% } %>
+		<div class="crew_info">
+			<h1 class="info_titel info_txt"><%=detailtvData.name%></h1>
+			<h3 class="info_subtxt info_txt">
+				<% for(var i=0; i<detailtvData.genres.length; i++) {%>
+					<%=detailtvData.genres[i].name%>&nbsp&nbsp
+				<% } %>
+			</h3>
+			<div class="crew_sta">
+				<div class="crew_number_content">
+					<i class="fas fa-user-friends fa-fw"></i>
+					<h1><%=detailtvData.cast.length%></h1>
+					<h3>Cast</h3>
+				</div>
+				<div class="crew_number_content">
+					<i class="fas fa-users fa-fw"></i>
+					<h1><%=detailtvData.crew.length%></h1>
+					<h3>Crew</h3>
+				</div>
+			</div>
+			<a href="/tv/<%=detailtvData.id%>" class="crew_back info_txt"><i class="fas fa-long-arrow-alt-left"></i>Back to Main</a>
+		</div>
+	</div>
+</div>
+
+<div class="crew_wrapper1 detail_wrapper">
+	<div class="crew_section">
+		<h1 class="section_title">Cast</h1>
+		<div class="section_wrapper">
+			<% for(var i=0; i<detailtvData.cast.length; i++) {%>
+				<div class="section_container">
+						<a href="#">
+							<% if( detailtvData.cast[i].profile_path != null){ %>
+								<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.cast[i].profile_path%>" alt="placeholder" class="profile_img">
+							<% } else{ %>
+								<img src="https://dummyimage.com/75x112.5/ffffff/ffffff" alt="placeholder">
+							<% } %>
+						</a>
+						<div class="section_info">
+							<a href="#" class="info_txt"><%=detailtvData.cast[i].name%></a>
+							<h3 class="crew_subtxt"><%=detailtvData.cast[i].character%></h3>
+						</div>
+					
+				</div>
+			<% } %>
+		</div>
+	</div>
+
+	<div class="crew_section">
+		<h1 class="section_title">Crew</h1>
+		<div class="section_wrapper">
+		<% for(var i=0; i<detailtvData.crew.length; i++) {%>
+			<div class="section_container">
+				
+					<a href="#">
+						<% if( detailtvData.crew[i].profile_path != null){ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.crew[i].profile_path%>" alt="placeholder" class="profile_img">
+						<% } else{ %>
+							<img src="https://dummyimage.com/75x112.5/ffffff/ffffff" alt="placeholder">
+						<% } %>
+					</a>
+					<div class="section_info">
+						<a href="#" class="info_txt"><%=detailtvData.crew[i].name%></a>
+						<h3 class="crew_subtxt"><%=detailtvData.crew[i].job%></h3>
+					</div>
+				
+			</div>
+			<% } %>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include ('../partials/footer.ejs');  -%>

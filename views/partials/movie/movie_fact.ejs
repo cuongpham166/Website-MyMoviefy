@@ -1,0 +1,97 @@
+<div class="fact_info fact_section">
+	<div class="fact_wrapper">
+		<h2 class="fact_titel info_txt">Facts</h2>
+		<ul class="fact_info_list">
+			<li>
+				<span><h3 class="fact_info_txt">Status</h3></span>
+				<span><h3 class="fact_info_subtxt"><%=detailmovData.status%></h3></span>
+			</li>
+
+						<li>
+							<span><h3 class="fact_info_txt">Original Titel</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailmovData.original_title%></h3></span>
+						</li>	
+
+						<% if(detailmovData.tagline !== ""){ %>				
+						<li>
+							<span><h3 class="fact_info_txt">Tagline</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailmovData.tagline%></h3></span>
+						</li>	
+						<% } %>	
+
+						<li>
+							<span><h3 class="fact_info_txt">Orginal Language</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailmovData.original_language%></h3></span>
+						</li>
+
+						<li>
+							<span><h3 class="fact_info_txt">The Movie DB ID</h3></span>
+						 	<span><h3 class="fact_info_subtxt"id="themoviedbID"><%=detailmovData.id%></h3></span>
+						</li>
+
+						<li style="display:none">
+							<span><h3 class="fact_info_txt">Media Type</h3></span>
+						 	<span><h3 class="fact_info_subtxt" id="mediaType">movie</h3></span>
+						</li>
+
+						<% if(detailmovData.imdb_id !== ""){ %>						
+						<li>
+							<span><h3 class="fact_info_txt">IMDB ID</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailmovData.imdb_id%></h3></span>
+						</li>
+						<% } %>	
+
+						<% if(detailmovData.runtime > 0){ %>						
+						<li>
+							<span><h3 class="fact_info_txt">Runtime</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailmovData.runtime%> mins</h3></span>
+						</li>
+						<% } %>	
+
+						<li>
+							<span><h3 class="fact_info_txt">Relase Date</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailmovData.release_date%></h3></span>
+						</li>	
+						
+						<% if((detailmovData.production_companies).length > 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Production Companies</h3></span>
+						 	<span>
+						 		<% for(var i=0; i < (detailmovData.production_companies).length; i++) {%>
+						 			<h3 class="fact_info_subtxt"><%=detailmovData.production_companies[i].name%></h3></h3>
+						 			<br>
+						 		<% } %>
+						 	</span>
+						</li>
+						<% } %>		
+						
+
+						<% if((detailmovData.production_countries).length > 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Production Countries</h3></span>
+						 	<span>
+						 		<% for(var i=0; i < (detailmovData.production_countries).length; i++) {%>
+						 			<h3 class="fact_info_subtxt"><%=detailmovData.production_countries[i].name%></h3></h3>
+						 			<br>
+						 		<% } %>
+						 	</span>
+						</li>	
+						<% } %>	
+
+
+						<% if(detailmovData.budget > 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Budget</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=numeral(detailmovData.budget).format('$0,0.00')%></h3></span>
+						</li>
+						<% } %>	
+
+						<% if(detailmovData.revenue > 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Revenue</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=numeral(detailmovData.revenue).format('$0,0.00')%></h3></span>
+						</li>
+						<% } %>	
+					</ul>
+				</div>
+</div>

@@ -1,0 +1,22 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="headlines_container">
+	<div class="section_title"><h1>Top Headlines</h1></div>
+	<ul class="headlines_wrapper">
+	<%for (var i=0;i<newsHeadlines.length;i++){%>
+		<li class="headlines_content headlines_card">
+			<a href="<%=newsHeadlines[i].websiteUrl%>" target="_blank" class="card_link">
+				<h3 class="headlines_website"><%=newsHeadlines[i].websiteName%></h3>
+			</a>
+			<a href="<%=newsHeadlines[i].url%>" target="_blank" class="card_link">
+				<h3 class="headlines_title"><%=newsHeadlines[i].title%></h3>
+			</a>
+			<h4 class="headlines_date"><%=newsHeadlines[i].date%></h4>
+		</li>
+	<%}%>
+	<a href="javascript:void(0)" id ="expand_headlines" class="hide">See more</a>
+	</ul>
+</div>
+
+
+<%- include ('../partials/footer.ejs');  -%>

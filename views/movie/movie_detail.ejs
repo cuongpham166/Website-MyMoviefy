@@ -1,0 +1,75 @@
+<%- include ('../partials/header.ejs');  -%>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<div id="overlayIframe" class="h_iframe" onclick="off()">
+	<div id="IframeContainer"></div>
+</div>
+
+<div class="detail_info">
+	<div class="info_wrapper detail_wrapper">
+		<div class="info_img">
+			<!--<h1 class="info_titel info_txt"><%=detailmovData.title%></h1>-->
+			<% if( detailmovData.poster_path != null){ %>
+				<img src="https://image.tmdb.org/t/p/w500/<%=detailmovData.poster_path%>" alt="placeholder">
+			<% } else{ %>
+				<img src="https://dummyimage.com/150x250/ffffff/000000" alt="placeholder">
+			<% } %>
+			<%- include ('../partials/movie/movie_btn.ejs'); -%>
+
+			<% if(currentUser){ %>
+			<%- include ('../partials/movie/movie_modalList.ejs'); -%>
+			<% } %>
+
+		</div>
+
+		<div class="info_text">
+			<%- include ('../partials/movie/movie_overview.ejs'); -%>
+		</div>
+
+		
+	</div>
+</div>
+
+<div class="detail_wrapper">
+	<div class="detail_fact">
+		<div class="homepage_top">
+			<span class="top_titel"><h1>Detailed Information</h1></span>
+		</div>		
+		<div class="fact_main">
+			<%- include ('../partials/movie/movie_fact.ejs'); -%>
+			<%- include ('../partials/movie/movie_keyword.ejs'); -%>
+			<%- include ('../partials/movie/movie_genre.ejs'); -%>
+		</div>
+	</div>
+	<% if( (detailmovData.cast).length != 0){ %>
+		<%- include ('../partials/movie/movie_cast.ejs'); -%>
+	<% } %>
+
+	<% if( (detailmovData.review).length != 0){ %>
+		<%- include ('../partials/movie/movie_review.ejs'); -%>
+	<% } %>
+
+	<% if( detailmovData.belongs_to_collection != null){ %>
+		<%- include ('../partials/movie/movie_collection.ejs'); -%>
+	<% } %>
+
+	<% if( (detailmovData.similar).length != 0){ %>
+		<%- include ('../partials/movie/movie_similar.ejs'); -%>
+	<% } %>
+
+
+	<% if(currentUser){ %>
+		<input type="text" id="currentUserID" value="<%= currentUser._id %>" style="display:none">
+	<% } else{ %>
+		<input type="text" id="currentUserID" value="" style="display:none">
+	<% } %>
+
+	<%- include ('../partials/movie/movie_comment.ejs'); -%>
+</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/flickity.js"></script> 
+<script type="text/javascript" src="/js/movieLogic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="/js/commentLogic1.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

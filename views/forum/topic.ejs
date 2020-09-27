@@ -1,0 +1,213 @@
+<%- include ('../partials/header.ejs');  -%>
+
+
+<div class="discussion_header">	
+		<h1 class="thread_headline">Discussion</h1>
+</div>
+<div class="news_container discussion_container">
+	<div class="forum_container--left">
+		<ul class="thread_list">
+			<li class="thread_element"  data-thread-id="<%=topic._id%>">
+				<div class="thread_container">
+					<h4 class="thread_author">Posted by @<%=topic.author.username%> <%=moment(topic.date).fromNow()%></h4>
+					<div class="thread_section--top">
+						<h4 id="thread_id"><%=topic._id%></h4>
+						<h4 class="thread_categorie"><%=topic.categorie%></h4>
+						<h4 class="thread_subforum"><%=topic.subforum%></h4>
+					</div>
+					<div class="thread_section--main">
+						<h3 class="thread_title"><%=topic.title%></h3>
+					</div>
+					<div class="thread_seciton--bottom">
+						<div class="thread_bottom--left">
+							<span class="thread_btn">
+								<% if(currentUser){%>
+									<span class="thread_icon like_thread_button">
+										<i class="fas fa-heart like_thread_icon"></i>
+								    </span>
+								<%}else{%>
+									<span class="thread_icon like_thread_button" onclick="window.location.href='/login'">
+										<i class="fas fa-heart like_thread_icon" style="color:#585858"></i>
+									</span>
+								<%}%>
+								<h4 class="thread_subtxt like_thread_text"><%=topic.like.length%></h4>
+							</span>
+
+							<span class="thread_btn">
+								<span class="thread_icon"><i class="fas fa-comments"></i></span>
+									<% if(topic.post.length > 0){%>
+										<h4 class="comment_thread_subtxt"><%=topic.post.length%> Comments</h4>
+									<%}else{%>
+										<h4 class="comment_thread_subtxt"><%=topic.post.length%> Comment</h4>
+									<%}%>
+							</span>
+
+							<span class="thread_btn">
+								<% if(currentUser){%>
+									<span class="thread_icon follow_thread_button">
+										<i class="fas fa-bookmark follow_thread_icon"></i>
+									</span>
+									<h4 class="thread_subtxt follow_thread_text">Follow</h4>
+								<%}else{%>
+									<span class="thread_icon follow_thread_button" onclick="window.location.href='/login'">
+										<i class="fas fa-bookmark follow_thread_icon" style="color:#585858"></i>
+									</span>
+									<h4 class="thread_subtxt follow_thread_text">Follow</h4>						
+								<%}%>
+							</span>
+						</div>
+					</div>
+
+					<% if(!currentUser){%>
+					<div class="topic_section--button">
+						<h3>Log in or sign up to leave a comment</h3>
+						<div class="topic_btn_container">
+							<a href="/login">Login</a>
+							<a href="/register">Sign Up</a>
+						</div>
+					</div>
+					<%}else{%>
+					<div class="topic_section_comment">
+						<textarea id="post_input" placeholder="Your Comment......" required></textarea>
+						<input id="post_button"  type="submit" value="Send">
+					</div>
+					<%}%>
+
+					<ul class="post_list" id="postListID">
+						<%for(let i=topic.post.length-1;i>=0;i--){%>
+						<li class="post_element">
+							<div class="post_container">
+								<div class="post_section--top">
+									<h4 class="post_author">@<%=topic.post[i].author.username%></h4>
+									<h4 class="post_date"><%=moment(topic.post[i].date).fromNow()%></h4>
+								</div>
+								<div class="post_section--main">
+									<p><%=topic.post[i].text%></p>
+								</div>
+								<div class="post_section--bottom"></div>
+							</div>
+						</li>
+						<%}%>
+					</ul>
+
+				</div>
+			</li>
+			
+		</ui>
+		
+	</div>
+
+
+
+
+	<div class="forum_container--right">
+		<div class="statistic_panel">
+			<div class="panel_title" style="border-bottom: none;">
+				<h3>About Forum</h3>
+				<span><i class="fas fa-arrow-down statistic_panel_button"></i></span>
+			</div>
+			<ul class="panel_section--main statistic_list">
+				<li class="statistic_content">
+					<span class="content_title">Total Members</span>
+					<span class="content_number"><%=topicData.total_member%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Total Topics</span>
+					<span class="content_number"><%=topicData.topic.length%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Total Comments</span>
+					<span class="content_number total_forum_comment_number"><%=topicData.total_comment%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Total Likes</span>
+					<span class="content_number total_forum_like_number"><%=topicData.total_like%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Latest Topic</span>
+					<%if(topicData.topic.length > 0){%>
+						<span class="content_number"><%=moment((topicData.topic[topicData.topic.length-1]).date).fromNow()%></span>
+					<%}else{%>
+						<span class="content_number">N/A</span>
+					<%}%>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Posted By</span>
+					<%if(topicData.topic.length > 0){%>
+						<span class="content_number"><%=topicData.topic[topicData.topic.length-1].author.username%></span>
+					<%}else{%>
+						<span class="content_number">N/A</span>
+					<%}%>
+				</li>
+			</ul>
+		</div>
+
+		<div class="statistic_panel">
+			<div class="panel_title" style="border-bottom: none;">
+				<h3>About Discussion</h3>
+				<span><i class="fas fa-arrow-down statistic_panel_button"></i></span>
+			</div>
+			<ul class="panel_section--main statistic_list">
+				<li class="statistic_content">
+					<span class="content_title">Subforum</span>
+					<span class="content_number"><%=topic.subforum%></span>
+				</li>	
+				<li class="statistic_content">
+					<span class="content_title">Categorie</span>
+					<span class="content_number"><%=topic.categorie%></span>
+				</li>
+				<li class="statistic_content">
+						<span class="content_title">Posted by</span>
+						<span class="content_number"><%=topic.author.username%></span>
+				</li>
+				<li class="statistic_content">
+						<span class="content_title">Posted</span>
+						<span class="content_number"><%=moment(topic.date).fromNow()%></span>
+				</li>			
+				<li class="statistic_content">
+					<span class="content_title">Total Followers</span>
+					<span class="content_number total_follower_number"><%=totalFollower%></span>
+				</li>			
+				<li class="statistic_content">
+					<span class="content_title">Total Likes</span>
+					<span class="content_number total_like_number"><%=(topic.like).length%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Total Comments</span>
+					<span class="content_number total_comments_number"><%=(topic.post).length%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Latest Comment</span>
+					<% if(topic.post.length > 0){%>
+						<span class="content_number last_comment_date"><%=moment(topic.post[(topic.post).length-1].date).fromNow()%></span>
+					<%}else{%>
+						<span class="content_number last_comment_date">N/A</span>
+					<%}%>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Commented by</span>
+					<% if(topic.post.length > 0){%>
+						<span class="content_number last_comment_author"><%=topic.post[(topic.post).length-1].author.username%></span>
+					<%}else{%>
+						<span class="content_number last_comment_author">N/A</span>
+					<%}%>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<!--<script type="text/javascript" src="/js/forumLogic.js"></script>-->
+<script type="text/javascript" src="https://js.pusher.com/3.2/pusher.min.js"></script>
+<script type="text/javascript" src="/js/forumPostLogic.js"></script>
+<%- include ('../partials/footer.ejs');  -%>
+

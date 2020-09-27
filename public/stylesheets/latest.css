@@ -1,0 +1,252 @@
+/*.latest_wrapper{
+	text-align: center;
+	margin:var(--margin-center);
+	max-width: var(--maxWidth-div);	
+	padding:20px 0;
+	margin-top: 20px;
+}*/
+
+/*.latest_wrapper h1{
+	margin-bottom: 10px;
+}*/
+
+.latest_wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.latest_wrapper h1{
+	display: inline-block;
+    line-height: 1.6;
+    font-size: var(--h2);
+    color: var(--yellow);
+    margin:0;
+	border-left: 4px solid var(--white);
+    padding-left: 7px;
+}
+
+.latest_link a{
+	text-decoration: none;
+	line-height: var(--lineHeight);
+	text-transform: uppercase;
+	padding: 20px 20px 5px 20px;
+	font-weight: bold;
+}
+
+.link_movie{
+	color:var(--movieColor);
+	border-bottom: 2px var(--movieColor) solid;
+	margin-right:5px;
+}
+
+.link_tv{
+	color:var(--tvColor);
+	border-bottom: 2px var(--tvColor) solid;
+	margin-right:5px;
+}
+
+.link_people{
+	color:var(--peopleColor);
+	border-bottom: 2px var(--peopleColor) solid;
+}
+
+.latest_sta{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+  	justify-content: center;
+  	margin-top:10px;
+  	text-align: center;
+}
+
+.latest_sta_content {
+	padding:10px 30px;
+}
+
+.latest_sta_content h3{
+	margin: 0;
+	line-height: var(--lineHeight);
+	color:var(--white);
+	font-size: var(--h3);
+	font-weight: normal;	
+}
+
+.latest_sta_content .latest_subtxt{
+	font-weight: bold;
+}
+
+.latest_sta_content i{
+	color:var(--orange);
+	font-size: 34px;
+	line-height: 40px;
+	margin-bottom: 5px;
+}
+
+.latest_card{
+    background-color: var(--darkgray);
+    color: var(--white);
+}
+
+/*.latest1{
+	display: flex;
+	flex-flow: row wrap;
+	margin-top:20px;
+	align-items: center;
+	justify-content: center;
+}*/
+
+.latest1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(425px,1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.latest_card .latest_card_wrapper{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.latest_card_wrapper img{
+	width: 150px;
+	padding: 10px 0 10px 10px;
+}
+
+.latest_card_wrapper .latest_info{
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.latest_card_wrapper .latest_info h2,.latest_card_wrapper .latest_info h3{
+	margin:0;
+	line-height: var(--lineHeight);
+	font-size:var(--h4);
+}
+
+.latest_info h2{
+	text-align: left;
+}
+
+.latest_card_wrapper .latest_info p.latest_card_overview{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+   -webkit-box-orient: vertical;
+   margin:0;
+   line-height: var(--lineHeight);
+   font-size:var(--h4);
+}
+
+
+
+.latest_card_more{
+	position: absolute;
+	bottom:0;
+	right: 0;
+	padding: 15px;
+	text-decoration: none;
+	color:var(--yellow);
+}
+
+.latest_info h2{
+	font-size:var(--h3);
+	font-weight: bold;
+}
+
+.latest_info h3{
+	font-size:var(--h4);
+	font-weight: normal;
+}
+
+
+h2.latest_card_titel {
+    color: var(--yellow);
+    font-weight: normal;
+}
+
+@media (max-width:1023px){
+	.latest_wrapper {
+	    margin-left: 10px;
+	    margin-right: 10px;
+	}
+}
+
+@media (max-width:425px)
+{	
+	.latest1 {
+	    grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+	}
+
+}
+
+@media (max-width:482px)
+{	
+
+	.latest_card {
+    width: 100%;
+	}
+
+	.latest_card .latest_card_wrapper {
+		flex-direction: row;
+	}
+
+	.latest_card{
+		margin-right: 0;
+	}
+
+	a.movie_card:nth-child(odd) {
+   	 margin-right: 0; 
+	}
+
+}
+
+@media (min-width:768px) and (max-width: 939px )
+{	
+	.latest_card {
+    width: 100%;
+	}
+
+	.latest_card .latest_card_wrapper {
+	    flex-direction: row;
+	}
+		a.movie_card:nth-child(odd) {
+   	 margin-right: 0; 
+	}
+
+}
+
+@media (min-width:940px) and (max-width: 995px )
+{	
+	.latest_card {
+    width: 100%;
+	}
+
+	.latest_card .latest_card_wrapper {
+	    flex-direction: row;
+	}
+
+	.latest1{
+		justify-content: center;
+	}
+
+	.latest_card{
+		margin-right: 0;
+	}
+		a.movie_card:nth-child(odd) {
+   	 margin-right: 0; 
+	}
+
+}

@@ -1,0 +1,23 @@
+<div class="info_paragraph">
+	<h1 class="info_titel info_txt"><%=detailmovData.title%></h1>
+	<h1 class="paragraph_tagline"><%=detailmovData.tagline%></h1>
+	<%- include ('movie_subinfo.ejs'); -%>
+	<%- include ('movie_score.ejs'); -%>
+	<h2 class="paragraph_titel info_txt">Overview</h2>
+	<p class="paragraph_txt info_txt"><%=detailmovData.overview%></p>
+</div>
+<% if( (detailmovData.crew).length > 3){ %>
+	<div class="info_crew">
+		<div class="crew_wrapper_main">
+			<div class="crew_info_left">
+				<% for(var i=0; i<3; i++) {%>
+					<div class="crew_info_main">
+						<h3 class="crew_name info_txt"><%=detailmovData.crew[i].name%></h3>
+						<h3 class="crew_position info_txt"><%=detailmovData.crew[i].job%></h3>
+					</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+<% } %>
+<%- include ('movie_keywords.ejs'); -%>

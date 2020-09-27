@@ -1,0 +1,27 @@
+<div id="container">
+
+<%- include ('../partials/header.ejs');  -%>
+
+	<div class="form_container forgotForm_container">
+		<div class="form_title">
+			<h2>Reset Password</h2>
+		</div>
+		<div class="form_text">
+			<p>Enter your user account's email address and we will send you a password reset link</p>
+		</div>
+		<div class="form_main" id="form_signin">
+			<form action="/forgot" method="POST">
+				<label for="email" class="form_label">Your Email</label>
+				<div class="input_container">
+					<input class="form_input" type="email" style="border:none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+				</div>
+				<div class="submit_container forgetSubmit_container">
+					<input class="form_submit" type="submit" value="Reset Password">	
+				</div>		
+			</form>
+		</div>
+	</div>
+
+<%- include ('../partials/footer.ejs');  -%>
+
+</div>

@@ -1,0 +1,37 @@
+	<% if( (detailtvData.seasons).length != 0){ %>
+	<div class="tvdetail_season">
+		<div class="homepage_top">
+			<span class="top_titel"><h1>Current Season</h1></span>
+		</div>
+		<div class="tvdetail_wrapper">
+			<div class="tvdetail_img">
+				<h2>Season <%=detailtvData.seasons[(detailtvData.seasons).length-1].season_number%></h2>
+				<h3><%=detailtvData.seasons[(detailtvData.seasons).length-1].air_date%></h3>
+				<a href="#">
+					<% if( detailtvData.seasons[(detailtvData.seasons).length-1].poster_path != null ){ %>
+						<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.seasons[(detailtvData.seasons).length-1].poster_path%>" alt="placeholder">
+					<% } else{ %>
+						<img src="https://dummyimage.com/130x195/000000/ffffff" alt="placeholder">
+					<% } %>
+				</a>
+				<h3><%=detailtvData.seasons[(detailtvData.seasons).length-1].episode_count%> Episodes</h3>
+				
+			</div>
+			<div class="tvdetail_info">
+				<a href="/tv/<%=detailtvData.id%>/seasons/<%=detailtvData.seasons[(detailtvData.seasons).length-1].season_number%>">
+					<%=detailtvData.seasons[(detailtvData.seasons).length-1].name%>
+				</a>
+				<% if( detailtvData.seasons[(detailtvData.seasons).length-1].overview !== ""){ %>
+					<p><%=detailtvData.seasons[(detailtvData.seasons).length-1].overview%></p>
+				<% } else{ %>
+					<p><%=detailtvData.seasons[(detailtvData.seasons).length-1].overview%></p>
+					<p>Season <%=detailtvData.seasons[(detailtvData.seasons).length-1].season_number%> of           <%=detailtvData.name%> premiered on <%=detailtvData.seasons[(detailtvData.seasons).length-1]. air_date%>
+					</p>
+				<% } %>
+			</div>
+		</div>
+		<div class="detail_bottom">
+			<a href="/tv/<%=detailtvData.id%>/seasons" class="info_txt">View All Seasons</a>
+		</div>
+	</div>
+	<% } %>

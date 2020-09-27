@@ -1,0 +1,190 @@
+.comment_container {
+    display: flex;
+    justify-content: center;
+}
+
+input#comment_text {
+    padding: 15px;
+    width: 100%;
+    border:0;
+    margin-right:5px;
+    outline: none;
+}
+
+input#comment_button {
+    padding: 10px 20px;
+    background: var(--yellow);
+    border: 0;
+    color: var(--darkgray);
+    font-weight: bold;
+    outline: none;
+}
+
+input#comment_button:hover{
+    cursor: pointer;
+}
+
+form.comment_form {
+    width: 100%;
+}
+
+ul#comment_content_container {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+
+li.comment_content {
+    background: var(--darkgray);
+    padding: 10px 10px;
+    margin-bottom: 15px;
+}
+
+li.comment_content:first-child{
+    margin-top: 15px;
+}
+
+.content_section--top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 7px;
+    margin-left: 3px;
+}
+
+.content_section--middle {
+    margin-left: 3px;
+}
+
+hr.hr_comment {
+    border: 0.5px var(--semitransparent) solid;
+}
+
+.content_section--top h3{
+    font-size: var(--h3);
+}
+
+
+
+h3.comment_author,p.comment_paragraph,h3.comment_date,h3.like_number,h4.like_button_text,h4.delete_button_text,h4.edit_button_text,h4.save_button_text {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+    color: var(--white);
+    font-weight: normal;
+}
+
+h3.comment_date {
+    color: var(--gray);
+    margin-left: 7px;
+    font-size: var(--h4);
+}
+
+h3.comment_author {
+    font-size: var(--h4);
+    color: var(--yellow);
+}
+
+.content_section--bottom,.button_container  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.like_button,.edit_button {
+    margin-right: 5px;
+}
+
+.save_button{
+    margin-left: 5px;
+}
+
+i.fas.fa-heart.like_button_icon,i.fas.fa-pen.edit_button_icon,i.fas.fa-trash.delete_button_icon,i.fas.fa-save.save_button_icon {
+    font-size: 15px;
+    padding:3px;
+}
+
+
+.like_button,.edit_button,.delete_button,.save_button {
+    border-radius: 5px;
+}
+
+.like_button:hover,.edit_button:hover,.delete_button:hover,.save_button:hover {
+    cursor: pointer;
+    background:var(--gray);
+}
+
+.like_button,.edit_button,.delete_button,.save_button{
+    color: var(--white);
+}
+
+.button_container {
+    padding: 5px 10px;
+}
+.button_container:first-child{
+    padding:5px 10px 5px 0;
+} 
+
+h4.like_button_text,h4.delete_button_text,h4.edit_button_text,h4.save_button_text {
+    font-size: var(--h4);
+    margin-right: 3px;
+}
+
+h4.delete_button_text{
+    margin-right: 0;
+}
+
+i.fas.fa-heart.like_icon {
+    font-size: 10px;
+    background: var(--yellow);
+    padding: 5px;
+    color: var(--black);
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+h3.like_number {
+    font-size: var(--h4);
+}
+
+.comment_like_count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+    width: 35px;
+}
+
+i.fas.fa-heart.like_icon:hover,h3.like_number:hover{
+    cursor: pointer;
+}
+
+
+ div.like_list {
+    padding-left: 0;
+    color: var(--white);
+    list-style: none;
+    position: relative;
+    display: inline-block;
+
+}
+
+
+span.likeList_content {
+    position: absolute;
+    z-index: 1;
+    background: var(--gray);
+    text-align: left;
+    padding: 7px 5px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -33px;
+}
+
+i.fas.fa-arrow-up.sort_icon {
+    margin-left: 3px;
+    font-size: 12px;
+}

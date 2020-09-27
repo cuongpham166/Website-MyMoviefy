@@ -1,0 +1,58 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="detail_wrapper">
+		<div class="latest_wrapper">
+			<h1 class="info_titel info_txt"><%=detailtvData.name%></h1>
+			<div class="form-group">
+				<label for="mySelect">Number of results per page</label>
+				<select class="form-control" id="mySelect" onchange="myFunction()">
+					<option value = "<%=detailtvData.seasons.length%>" selected='selected'>All</option> 
+					<% for(var i=1; i < 4;i++){ %>
+						<option value = <%=i%> > <%=i%> </option>
+					<%}%>  
+				</select>
+			</div>
+		</div>
+
+	<% for(var i=0; i<detailtvData.seasons.length; i++) {%>
+		
+			<div class="tvdetail_season tvdetail_season_card paginate">
+				<div class="tvdetail_wrapper">
+					<div class="tvdetail_img">
+						<a href="/tv/<%=detailtvData.id%>/seasons/<%=detailtvData.seasons[i].season_number%>"><h2>Season <%=detailtvData.seasons[i].season_number%></h2></a>
+						<h3><%=detailtvData.seasons[i].air_date%></h3>
+						<a href="/tv/<%=detailtvData.id%>/seasons/<%=detailtvData.seasons[i].season_number%>">
+							<% if( detailtvData.seasons[i].poster_path != null ){ %>
+								<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.seasons[i].poster_path%>" alt="placeholder">
+							<% } else{ %>
+								<img src="https://dummyimage.com/130x195/000000/ffffff" alt="placeholder">
+							<% } %>
+						</a>
+						<h3><%=detailtvData.seasons[i].episode_count%> Episodes</h3>
+						
+					</div>
+					<div class="tvdetail_info">
+						<a href="/tv/<%=detailtvData.id%>/seasons/<%=detailtvData.seasons[i].season_number%>"><%=detailtvData.seasons[i].name%></a>
+						<% if( detailtvData.seasons[i].overview !== ""){ %>
+							<p><%=detailtvData.seasons[i].overview%></p>
+						<% } else{ %>
+							<p><%=detailtvData.seasons[i].overview%></p>
+							<p>Season <%=detailtvData.seasons[i].season_number%> of           
+							<%=detailtvData.name%> premiered on <%=detailtvData.seasons[i].air_date%>
+							</p>
+						<% } %>
+					</div>
+				</div>
+				
+			</div>
+		
+	<% } %>
+
+	<div id="page-nav_wrapper">
+		<div id="page-nav"></div>
+	</div>
+
+</div>
+
+
+<%- include ('../partials/footerpag.ejs');  -%>

@@ -1,0 +1,171 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FFFFFF;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #FFFFFF;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #FFFFFF;
+}
+
+.input_container1 {
+    display: flex;
+    justify-content: center;
+}
+
+input#inputText {
+    padding: 1.5rem 1.5rem;
+    border: 3px solid var(--yellow);
+    margin-top: 100px;
+    border-radius: 10px;
+    width: 50%;
+    background: #141414;
+    color:#FFFFFF;
+    outline: none;
+}
+
+.result_container {
+    margin-top: 20px;
+}
+
+ul#result_wrapper {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+li.result_data {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+i.result_icon {
+    padding: 10px;
+    font-size: 30px;
+    color: var(--gray);
+}
+
+a.result_link {
+    text-decoration: none;
+    color: white;
+}
+
+a.result_link:hover{
+  cursor: pointer;
+}
+
+h2#result_title {
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: var(--h2);
+}
+
+
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background:var(--darkgray) ;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color:var(--yellow);
+}
+
+.overlay .closebtn:hover {
+  color:var(--white);
+}
+
+
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+form.search_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input.searchTerm{
+    padding: 1.5rem 1.5rem;
+    width: 70%;
+    border-radius:10px;
+    outline: none;
+    border:3px  var(--yellow) solid;
+    background-color: var(--darkgray);
+    color:var(--white);
+}
+
+.search_form input::placeholder{
+    color: var(--white);
+    font-style: italic;
+}
+
+button.searchButton{
+    padding: 1.5rem 1rem;
+    border-radius: 0 10px 10px 0;
+    border:3px var(--yellow) solid;
+    text-align: center;
+    background-color: var(--yellow);
+    color: var(--darkgray);
+    outline: none;
+}
+
+button.searchButton:hover{
+    cursor: pointer;
+}
+
+.attribution_logo{
+    width: 20%;
+    margin:0 auto;
+}
+.attribution_logo img{
+    margin-top:50px;
+}
+
+
+@media (max-width:423px)
+{   
+
+    ul#result_wrapper {
+        width: 70%;
+    }
+
+    input#inputText{
+        width: 70%;
+    }
+}

@@ -1,0 +1,123 @@
+.imdb_container {
+    margin: var(--margin-center);
+    max-width: var(--maxWidth-div);
+    display: flex;
+    flex-flow:row-reverse wrap-reverse;
+}
+
+.section_title1 h1{
+    line-height: 1.6;
+    font-size: var(--h2);
+    display: inline-block;
+    color: var(--yellow);
+    margin:0;
+    border-left: 4px solid var(--white);
+    padding-left: 7px;
+}
+
+.section_title1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.rotten_container {
+    margin: var(--margin-center);
+    max-width: 1100px;
+    padding: 0 12px;
+    margin-top: 30px;
+}
+
+.imdb_rank--left{
+	width: 100%;
+}
+
+.imdb_rank--right{
+	width: 25%;
+	margin-left: 30px
+}
+
+ul.imdb_list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+ul.imdb_list li{
+    color: var(--white);
+    padding: 20px 10px;
+    display: inline-block;
+}
+
+ul.imdb_list li:hover{
+    cursor: pointer;
+    color: var(--yellow);
+}
+
+.rotten_link {
+    color:var(--white);
+}
+
+.rotten_link:hover{
+    color:var(--yellow);
+}
+
+select#select_imdb{
+    padding: 5px 15px;
+    color: var(--white);
+    border-radius: 10px;
+    background-color: var(--darkgray);
+    border: 2px var(--yellow) solid;
+    text-align-last: center;
+    outline: none;    
+}
+
+@media (max-width: 800px)
+{
+
+    .imdb_rank--left {
+        width: 100%;
+    }
+
+    .imdb_rank--right {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+
+    ul.imdb_list {
+        display: flex;
+        flex-direction: column;
+        /* flex-flow: row wrap; */
+    }
+
+}
+
+/*@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {*/
+
+@media (max-width:767px){
+    .imdb_table,.rotten_table,.metacritic_table{
+        padding:0;
+    }
+
+
+    td.imdb_cell:nth-of-type(1):before { content: "Rank"; }
+    td.imdb_cell:nth-of-type(2):before { content: ""; }
+    td.imdb_cell:nth-of-type(3):before { content: "Name"; }
+    td.imdb_cell:nth-of-type(4):before { content: "Year"; }
+    td.imdb_cell:nth-of-type(5):before { content: "Rating"; }
+
+    td.rotten_cell:nth-of-type(1):before { content: "Rank"; }
+    td.rotten_cell:nth-of-type(2):before { content: "Name"; }
+    td.rotten_cell:nth-of-type(3):before { content: "Rating"; }
+    td.rotten_cell:nth-of-type(4):before { content: "No. of Reviews"; }
+
+    td.metacritic_cell:nth-of-type(1):before { content: "Rank"; }
+    td.metacritic_cell:nth-of-type(2):before { content: ""; }
+    td.metacritic_cell:nth-of-type(3):before { content: "Name"; }
+    td.metacritic_cell:nth-of-type(4):before { content: "Date"; }
+    td.metacritic_cell:nth-of-type(5):before { content: "Metascore"; }
+    td.metacritic_cell:nth-of-type(6):before { content: "Userscore"; }
+
+}

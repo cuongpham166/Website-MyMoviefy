@@ -1,0 +1,39 @@
+<%- include ('../partials/header.ejs');  -%>
+<div class="rotten_container">
+	<div class="section_title1">
+		<h1 id="imdb_title">Best of Rotten Tomatoes</h1>
+		<div class="form-group">
+			<label for="mySelect">Year</label>
+				<select class="form-control" id="mySelect" onchange="changeRottenYear()">
+					<%for (var i=2020;i>1949;i--){%>
+					    <option value="<%=i%>"><%=i%></option>
+					<%}%>
+				</select>
+		</div>
+	</div>
+
+	<table class="rotten_table">
+		<thead class="table_header">
+			<tr class="imdb_row">
+				<th class="imdb_header">Rank</th>
+				<th class="imdb_header">Name</th>
+				<th class="imdb_header">Rating</th>
+				<th class="imdb_header">No. of Reviews</th>
+			</tr>
+		</thead>
+		<tbody id="rotten_tbody" class="table_body">
+			<%for (var i=0;i<rottenData.length;i++){%>
+			<tr>
+				<td class="rotten_cell"><%=i+1%></td>
+				<td class="rotten_cell"><a href="<%=rottenData[i].url%>" target="_blank" class="rotten_link"><%=rottenData[i].name%></a></td>
+				<td class="rotten_cell"><%=rottenData[i].score%></td>
+				<td class="rotten_cell"><%=rottenData[i].reviews%></td>
+			</tr>
+			<%}%>
+		</tbody>
+	</table>
+
+</div>
+
+
+<%- include ('../partials/footer.ejs');  -%>

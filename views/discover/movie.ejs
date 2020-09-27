@@ -1,0 +1,178 @@
+<%- include ('../partials/header.ejs');  -%>
+
+
+
+
+
+
+<div class="discover_title_container">
+	<h2 class="discover_title">Discover Movies</h2>
+</div>
+
+<div class="discover_container">
+	<div class="discover_section--left">
+		<div class="discover_container--left">
+			
+			<div>
+				<div class="sort_panel">
+					<div class="panel_title">
+						<h3>Sort</h3>
+						<span id="sort_btn"><i class="fas fa-arrow-down" id="sort_icon"></i></span>
+					</div>
+					<div class="panel_section--main" id="sort_section--main">
+						<div class="sort_card">
+							<div class="sort_card_container">
+								<h4 class="sort_title">Sort Results By</h4>
+								<select id="movie_sort_select">
+								 	<option disabled selected value>Select an option</option>
+									<option value="">None Selected</option>
+									<option value="original_title.acs">Titel (A-Z)</option>
+									<option value="original_title.desc">Titel (Z-A)</option>
+									<option value="popularity.asc">Popularity Ascending</option>
+									<option value="popularity.desc">Popularity Descending</option>
+									<option value="revenue.asc">Revenue Ascending</option>
+									<option value="revenue.desc">Revenue Descending</option>
+									<option value="release_date.asc">Release Date Ascending</option>
+									<option value="release_date.desc">Release Date Descending</option>
+									<option value="vote_average.asc">User Score Ascending</option>
+									<option value="vote_average.desc">User Score Descending</option>
+								</select>
+							</div>
+						</div>
+
+					</div>
+					
+				</div>
+				<div class="filter_panel">
+					<div class="panel_title">
+						<h3>Filters</h3>
+						<span id="filter_btn"><i class="fas fa-arrow-down" id="filter_icon"></i></span>
+					</div>
+					<div class="panel_section--main" id="filter_section--main">
+						<div class="filter_card">
+							<div class="filter_card_container">
+								<h4 class="filter_title">Genres</h4>
+								<select id="genre_value">
+								 	<option disabled selected value>Select an option</option>
+									<option value="">All</option>
+									<%for(var i=0;i<genres.length;i++){%>
+									<option value=<%=genres[i].id%>><%=genres[i].name%></option>
+									<%}%>
+								</select>
+							</div>
+						</div>
+
+						<div class="filter_card">
+							<div class="filter_card_container">
+								<h4 class="filter_title">Release Date</h4>
+								<div class="filter_date">
+									<h4 class="filter_date_title">from...</h4>
+									<input type="date" id="date_from">
+								</div>
+								<div class="filter_date">
+									<h4 class="filter_date_title">to...</h4>
+									<input type="date" id="date_to">
+								</div>
+							</div>
+						</div>
+
+						<div class="filter_card">
+							<div class="filter_card_container">
+								<h4 class="filter_title">User Score</h4>
+								<div class="filter_score_container">
+									<h4 class="filter_score_title">min: <span id="min_score_value"></span></h4>
+									<input type="range" min="0" max="10" value="0" step="1" class="filter_slider" id="min_score">
+								</div>
+								<div class="filter_score_container">
+									<h4 class="filter_score_title">max: <span id="max_score_value"></span></h4>
+									<input type="range" min="0" max="10" value="0" step="1" class="filter_slider" id="max_score">
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="filter_card">
+							<div class="filter_card_container">
+								<h4 class="filter_title">User Votes</h4>
+								<div class="filter_vote_container">
+									<h4 class="filter_vote_title">min: <span id="min_vote_value"></span></h4>
+									<input type="range" min="0" max="500" value="0" step="100" class="filter_slider" id="min_vote">
+								</div>
+								<div class="filter_vote_container">
+									<h4 class="filter_vote_title">max: <span id="max_vote_value"></span></h4>
+									<input type="range" min="0" max="500" value="0" step="100" class="filter_slider" id="max_vote">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="filter_card">
+							<div class="filter_card_container">
+								<h4 class="filter_title">Runtime</h4>
+								<div class="filter_runtime_container">
+									<h4 class="filter_runtime_title">min: <span id="min_runtime_value">0</span></h4>
+									<input type="range" min="0" max="400" value="0" step="15" class="filter_slider" id="min_runtime">
+								</div>
+								<div class="filter_runtime_container">
+									<h4 class="filter_runtime_title">max: <span id="max_runtime_value">0</span></h4>
+									<input type="range" min="0" max="400" value="0" step="15" class="filter_slider" id="max_runtime">
+								</div>
+							</div>
+						</div>
+						<div class="filter_card">
+							<div class="filter_card_container">
+								<div class="submitBtn">
+									<input type="submit" value="Search" id="filterSubBtn">
+									<input type="submit" value="Clear All" id="clearSubBtn">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="discover_section--right">
+		<div class="discover_container--right" id="discover_grid">
+			<%for(var i=0;i<movie.length;i++){%>
+				<a href="/movie/<%=movie[i].id%>" class="discover_card_wrapper">
+					<div class="discover_card">
+						<% if( movie[i].poster_path == null ){ %>
+							<img src="https://dummyimage.com/120x180/ffffff/000000" alt="placeholder">
+						<% } else{ %>
+							<img src="https://image.tmdb.org/t/p/w500/<%=movie[i].poster_path%>" class="discover_img" alt="placeholder">
+						<% } %>
+						<div class="discover_content">
+							<h4><%=movie[i].title%></h4>
+							<p><%=movie[i].overview%></p>
+						</div>
+					</div>
+				</a>
+			<%}%>
+		</div>
+	</div>
+
+
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/js/movieDiscoverLogic.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

@@ -1,0 +1,33 @@
+
+	<div class="score_container">
+		<% if (detailmovData.vote_average !== "" || detailmovData.vote_average !== "0"){%>
+			<div class="score_card tooltip">
+				<div class="score_card_container">
+					<img src="/image/themoviedb_icon.svg" class="score_img">
+					<h4 class="score_value"><%=detailmovData.vote_average%></h4>
+					<span class="tooltiptext">Based on <%=detailmovData.vote_count%> votes</span>
+				</div>
+			</div>
+		<%}%>
+
+		<% if (detailmovData.imdb.ratingValue !== ""){%>
+			<div class="score_card tooltip">
+				<div class="score_card_container">
+					<img src="/image/Imdb_logo_rounded_corners.png" class="score_img">
+					<h4 class="score_value"><%=detailmovData.imdb.ratingValue%></h4>
+					<span class="tooltiptext">Based on <%=detailmovData.imdb.ratingCount%> votes</span>
+				</div>
+			</div>
+		<%}%>
+
+		<% if (detailmovData.meta.ratingValue !== ""){%>
+			<div class="score_card tooltip">
+				<div class="score_card_container">
+					<img src="/image/metacritic-icon.svg" class="score_img">
+					<h4 class="score_value"><%=detailmovData.meta.ratingValue%></h4>
+					<span class="tooltiptext">Based on <%=detailmovData.meta.ratingCount%> votes</span>
+				</div>
+			</div>
+		<%}%>
+
+	</div>

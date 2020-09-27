@@ -1,0 +1,98 @@
+<div class="fact_info fact_section">
+				<div class="fact_wrapper">
+					<h2 class="fact_titel info_txt">Facts</h2>
+					<ul class="fact_info_list">
+						<% if(detailtvData.status !== ""){ %>	
+						<li>
+							<span><h3 class="fact_info_txt">Status</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailtvData.status%></h3></span>
+						</li>
+						<% } %>	
+
+						<% if(detailtvData.type !== ""){ %>	
+						<li>
+							<span><h3 class="fact_info_txt">Type</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailtvData.type%></h3></span>
+						</li>
+						<% } %>
+
+						<% if( (detailtvData.networks).length != 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Network</h3></span>
+						 	<span>
+						 		<% for(var i=0; i < (detailtvData.networks).length; i++) {%>
+						 		<h3 class="fact_info_subtxt"><%=detailtvData.networks[i].name%></h3>
+						 		<br>
+						 		<% } %>
+						 	</span>
+						</li>
+						<% } %>
+
+						<% if(detailtvData.first_air_date !== ""){ %>	
+						<li>
+							<span><h3 class="fact_info_txt">First Air Date</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailtvData.first_air_date%></h3></span>
+						</li>
+						<% } %>
+
+						<% if( (detailtvData.languages).length != 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Languages</h3></span>
+						 	<span>
+						 		<% for(var i=0; i < (detailtvData.languages).length; i++) {%>
+						 		<h3 class="fact_info_subtxt"><%=detailtvData.languages[i]%></h3>
+						 		<br>
+						 		<% } %>
+						 	</span>
+						</li>
+						<% } %>
+
+						<li>
+							<span><h3 class="fact_info_txt">Number of Seasons</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailtvData.number_of_seasons%></h3></span>
+						</li>
+
+						<li>
+							<span><h3 class="fact_info_txt">Number of Episodes</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailtvData.number_of_episodes%></h3></span>
+						</li>
+
+						<li>
+							<span><h3 class="fact_info_txt">The Movie DB ID</h3></span>
+						 	<span><h3 class="fact_info_subtxt"id="themoviedbID"><%=detailtvData.id%></h3></span>
+						</li>
+
+						<% if(detailtvData.imdb_id != null){ %>						
+						<li>
+							<span><h3 class="fact_info_txt">IMDB ID</h3></span>
+						 	<span><h3 class="fact_info_subtxt"><%=detailtvData.imdb_id%></h3></span>
+						</li>
+						<% } %>	
+
+						<% if( (detailtvData.created_by).length != 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Created by</h3></span>
+						 	<span>
+						 		<% for(var i=0; i < (detailtvData.created_by).length; i++) {%>
+						 		<h3 class="fact_info_subtxt"><%=detailtvData.created_by[i].name%></h3>
+						 		<br>
+						 		<% } %>
+						 	</span>
+						</li>
+						<% } %>
+
+						<% if( (detailtvData.production_companies).length != 0){ %>
+						<li>
+							<span><h3 class="fact_info_txt">Production Companies</h3></span>
+						 	<span>
+						 		<% for(var i=0; i < (detailtvData.production_companies).length; i++) {%>
+						 		<h3 class="fact_info_subtxt"><%=detailtvData.production_companies[i].name%></h3>
+						 		<br>
+						 		<% } %>
+						 	</span>
+						</li>
+						<% } %>
+
+					</ul>
+				</div>
+			</div>

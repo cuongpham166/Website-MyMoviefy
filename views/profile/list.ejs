@@ -1,0 +1,95 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="profile_container">
+	<%- include ('../partials/profile/sidebar.ejs');  -%>
+	<div class="profile_main">
+		<div class="main_container">
+			<div class="title-section">
+				<h2 class="main_title">My Lists</h2>
+			</div>
+			<div class="lists_section">
+				<% for (let i=0;i<myLists.length;i++) {%>
+				<div class="lists_card">
+					<div class="lists_card_header">
+						<h3><%=myLists[i].name%></h3>
+						<span class="lists_btn"><i class="fas fa-arrow-up lists_icon"></i></span>
+					</div>
+					<div class="lists_card_main">
+
+						<% if (myLists[i].media.length > 0){%>
+							<div class="lists_card_container">
+								<% for (let j=0;j<myLists[i].media.length;j++) {%>
+									<div class="profile_card_lists">
+										<div class="card_section--left">
+											<img src="https://image.tmdb.org/t/p/w500/<%=myLists[i].media[j].img%>">
+										</div>
+										<div class="card_section--right">
+											<div class="profile_card_container">
+												<div class="card_header">
+													<h1 class="media_name"><%=myLists[i].media[j].name%></h1>
+													<h2 class="media_vote"><%=myLists[i].media[j].vote%></h2>
+												</div>
+
+												<div class="card_subheader">
+													<% if (myLists[i].media[j].runtime !== "") {%>
+														<h4 class="media_runtime"><%=myLists[i].media[j].runtime%> min</h4>
+													<%}%>
+													<h4 class="media_genre">
+														<% for (let k=0;k<myLists[i].media[j].genreArray.length;k++){%>
+															<span><%=myLists[i].media[j].genreArray[k]%></span>
+														<%}%>
+													</h4>
+													<h4 class="media_releasedate"><%=myLists[i].media[j].release%></h4>
+												</div>
+
+												<h3 class="media_tagline"><%=myLists[i].media[j].tagline%></h3>
+												<p class="media_overview"><%=myLists[i].media[j].overview%></p>
+												<a href="<%=myLists[i].media[j].url%>" target="_blank"  class="media_link">More Detail</a>
+												<h2 class="media_added">Added <%=moment(myLists[i].media[j].date).fromNow()%></h2>
+											</div>
+										</div>
+									</div>
+								<%}%>
+							</div>
+						<%}else{%>
+						<div class="lists_card_container">
+							<p class="notice_default">There are no movies or tv shows on this list.</p>
+						</div>
+						<%}%>
+					</div>
+					
+
+					<div class="lists_card_footer">
+						<h3>Created <%=moment(myLists[i].created).fromNow()%></h3>
+					</div>
+
+				</div>
+				<%}%>
+			</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>	
+	</div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/profileListLogic.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

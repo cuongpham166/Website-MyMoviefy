@@ -1,0 +1,14 @@
+<div class="fact_keyword fact_section">
+	<div class="fact_wrapper">
+		<h2 class="fact_titel info_txt fact_titel1">Keywords</h2>
+		<div class="fact_link keyword_link">
+			<% if( (detailmovData.keywords).length != 0){ %>
+				<% for(var i=0; i<detailmovData.keywords.length; i++) {%>
+					<a href="/keyword/<%=detailmovData.keywords[i].id%>/movie"><%=detailmovData.keywords[i].name%></a>
+				<% } %>
+			<% } else{ %>
+				<h3 class="blank_txt">No keywords have been added.</h3>
+			<% } %>
+		</div>
+	</div>
+</div>

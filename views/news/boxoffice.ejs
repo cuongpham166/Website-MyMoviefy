@@ -1,0 +1,58 @@
+<%- include ('../partials/header.ejs');  -%>
+<div class="headlines_container">
+	<div class="section_title"><h1>Box Office 2020</h1></div>
+	<div class="boxoffice_container">
+		<table>
+			<thead class="table_header">
+			<tr>
+				<th>Rank</th>
+				<th>Name</th>
+				<th>Worldwide</th>
+				<th>Domestic</th>
+				<th>%</th>
+				<th>Foreign</th>
+				<th>%</th>
+			</tr>
+			</thead>
+			<tbody class="table_body">
+			<%for (var i=0;i<boxofficeData.length;i++){%>
+			<tr>
+				<td><%=boxofficeData[i].rank%></td>
+				<td>
+					<a href="<%=boxofficeData[i].url%>" class="boxoffice_link">
+						<%=boxofficeData[i].name%>
+					</a>
+				</td>
+				<td><%=boxofficeData[i].worldwide%></td>
+				<td><%=boxofficeData[i].domestic%></td>
+				<td><%=boxofficeData[i].percent1%></td>
+				<td><%=boxofficeData[i].foreign%></td>
+				<td><%=boxofficeData[i].percent2%></td>
+			</tr>
+			<%}%>
+			</tbody>
+		</table>
+
+		<div class="source_link"><a href="https://www.boxofficemojo.com" >Source: Box Office Mojo</a></div>
+			
+		
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<%- include ('../partials/footer.ejs');  -%>

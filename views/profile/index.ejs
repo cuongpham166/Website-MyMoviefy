@@ -1,0 +1,74 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="profile_container">
+	<%- include ('../partials/profile/sidebar.ejs');  -%>
+
+	
+	<div class="profile_main profile_grid">
+		<h2 class="main_homepage_title">Homepage</h2>
+		<div class="profile_card account_card">
+			<div class="profile_card_container account_card_container">
+				<h2 class="account_name">@<%=userData.user[0].name%></h2>
+				<h3 class="account_date">Moviefy member since <%=moment(userData.user[1].joined).format("MMM YYYY")%></h3>
+			</div>
+		</div>
+		<div class="profile_card total_card total_list_card">
+			<div class="profile_card_container">
+				<h3 class="total_title">Total Lists</h3>
+				<h2 class="total_number"><%=userData.list_total%></h2>
+				<h4 class="total_time">Updated: <%=moment(userData.updated).fromNow()%></h4>
+			</div>
+		</div>
+		<div class="profile_card total_card total_movie_card">
+			<div class="profile_card_container">
+				<h3 class="total_title">Total Movies</h3>
+				<h2 class="total_number"><%=userData.movie_total%></h2>
+				<h4 class="total_time">Updated: <%=moment(userData.updated).fromNow()%></h4>
+			</div>
+		</div>
+		<div class="profile_card total_card total_tv_card">
+			<div class="profile_card_container">
+				<h3 class="total_title">Total TV Shows</h3>
+				<h2 class="total_number"><%=userData.tv_total%></h2>
+				<h4 class="total_time">Updated: <%=moment(userData.updated).fromNow()%></h4>
+			</div>
+		</div>
+		<div class="profile_card chart_card watchlist_card">
+			<div class="profile_card_container">
+				<h3 class="chart_title">Your Movie Genres </h3>
+				<canvas class="chart_seciton" id="favorite_movie_genre_chart"></canvas>
+				<h4 class="chart_notice">*Genres of movies were saved in watchlist, favoritelist and created lists </h4>
+			</div>
+		</div>
+		<div class="profile_card chart_card favorite_card">
+			<div class="profile_card_container">
+				<h3 class="chart_title">Your TV Genres</h3>
+				<canvas class="chart_seciton" id="favorite_tv_genre_chart"></canvas>
+				<h4 class="chart_notice">*Genres of shows were saved in watchlist, favoritelist and created lists </h4>
+			</div>
+		</div>
+		<div class="profile_card activity_card">
+			<div class="profile_card_container">
+				<h3 class="activity_title">Recent Activity</h3>
+				<ul class="activity_list"></ul>
+				<h4 class="activity_button">See more</h4>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/profileHomepageLogic.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

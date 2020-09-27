@@ -1,0 +1,78 @@
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background:var(--darkgray) ;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color:var(--orange);
+}
+
+.overlay .closebtn:hover {
+  color:var(--white);
+}
+
+
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+form.search_form{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input.searchTerm{
+	padding: 1.5rem 1.5rem;
+	width: 70%;
+	border-radius:10px;
+	outline: none;
+	border:3px  var(--orange) solid;
+	background-color: var(--darkgray);
+	color:var(--white);
+}
+
+.search_form input::placeholder{
+	color: var(--white);
+	font-style: italic;
+}
+
+button.searchButton{
+	padding: 1.5rem 1rem;
+	border-radius: 0 10px 10px 0;
+	border:3px var(--orange) solid;
+	text-align: center;
+	background-color: var(--orange);
+	color: var(--darkgray);
+	outline: none;
+}
+
+button.searchButton:hover{
+	cursor: pointer;
+}
+
+.attribution_logo{
+	width: 20%;
+	margin:0 auto;
+}
+.attribution_logo img{
+	margin-top:50px;
+}

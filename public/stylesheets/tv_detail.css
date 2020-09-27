@@ -1,0 +1,80 @@
+.tvdetail_season .tvdetail_wrapper{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding:10px 20px;
+	color: var(--white);
+    background: var(--darkgray);
+}
+
+.tvdetail_wrapper h2,.tvdetail_wrapper h3,.tvdetail_wrapper a{
+	margin:0;
+	line-height: var(--lineHeight);
+	text-align: center;
+	font-weight: normal;
+}
+
+.tvdetail_img img {
+    width: 130px;
+    height: 195px;
+    margin: 5px 0;
+}
+
+.tvdetail_wrapper a h2 {
+    font-size: var(--h3);
+}
+.tvdetail_wrapper h2{
+	font-size:var(--h3);
+}
+.tvdetail_wrapper h3{
+	font-size: var(--h3);
+}
+
+.tvdetail_wrapper a {
+    font-size: var(--h2);
+    text-decoration: none;
+    font-weight: normal;
+    color: var(--yellow);
+}
+
+.tvdetail_info{
+	margin-left:20px;
+}
+
+.tvdetail_info p{
+	margin:0;
+	line-height: var(--lineHeight);
+}
+
+.tvdetail_season_card{
+	margin-top:20px;
+}
+
+.tvdetail_season_card:last-child{
+	margin-bottom:20px; 
+}
+
+.season_detail_subtxt{
+	margin-bottom: 20px;
+}
+
+.seasons_detail img{
+	width:227px;
+	height: 127px;
+}
+
+.tvdetail_info h1 {
+    font-size: var(--h2);
+    margin: 0;
+    font-weight: normal;
+    color: var(--yellow);
+}
+
+@media (max-width: 767px)
+{
+
+	.tvdetail_season .tvdetail_wrapper{
+		flex-direction: column ;
+		padding: 10px 5px;
+	}
+}

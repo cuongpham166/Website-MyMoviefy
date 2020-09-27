@@ -1,0 +1,72 @@
+<%- include ('../partials/header.ejs');  -%>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<div id="overlayIframe" class="h_iframe" onclick="off()">
+	<div id="IframeContainer"></div>
+</div>
+
+<div class="detail_info">
+	<div class="info_wrapper detail_wrapper">
+		<div class="info_img">
+			<h1 class="info_titel info_txt"><%=detailtvData.name%></h1>
+			<% if( detailtvData.poster_path != null){ %>
+				<img src="https://image.tmdb.org/t/p/w500/<%=detailtvData.poster_path%>" alt="placeholder">
+			<% } else{ %>
+				<img src="https://dummyimage.com/300x450/ffffff/000000" alt="placeholder">
+			<% } %>
+
+			<%- include ('../partials/tv/tv_btn.ejs'); -%>
+
+			<% if(currentUser){ %>
+			<%- include ('../partials/movie/movie_modalList.ejs'); -%>
+			<% } %>
+
+
+		</div>
+		<div class="info_text">
+			<div class="info_paragraph">
+				<h2 class="paragraph_titel info_txt">Overview</h2>
+				<p class="paragraph_txt info_txt"><%=detailtvData.overview%></p>
+			</div>
+			<div class="info_paragraph">
+				<%- include ('../partials/tv/tv_score.ejs');  -%>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="detail_wrapper">
+	<div class="detail_fact">
+		<div class="homepage_top">
+			<span class="top_titel"><h1>Detailed Information</h1></span>
+		</div>	
+		<div class="fact_main">
+			<%- include ('../partials/tv/tv_fact.ejs');  -%>
+			<%- include ('../partials/tv/tv_keyword.ejs');  -%>
+			<%- include ('../partials/tv/tv_genre.ejs');  -%>
+		</div>
+	</div>
+
+	<%- include ('../partials/tv/tv_cast.ejs');  -%>
+	<%- include ('../partials/tv/tv_review.ejs');  -%>
+	<%- include ('../partials/tv/tv_season.ejs');  -%>
+	<%- include ('../partials/tv/tv_similar.ejs');  -%>
+
+
+	<% if(currentUser){ %>
+		<input type="text" id="currentUserID" value="<%= currentUser._id %>" style="display:none">
+	<% } else{ %>
+		<input type="text" id="currentUserID" value="" style="display:none">
+	<% } %>
+
+
+
+
+
+
+</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/flickity.js"></script> 
+<script type="text/javascript" src="/js/tvLogic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

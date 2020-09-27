@@ -1,0 +1,14 @@
+<div class="fact_keyword fact_section">
+				<div class="fact_wrapper">
+					<h2 class="fact_titel fact_titel1 info_txt">Keywords</h2>
+					<div class="fact_link keyword_link">
+						<% if( (detailtvData.keywords).length != 0){ %>
+							<% for(var i=0; i<detailtvData.keywords.length; i++) {%>
+							<a href="/keyword/<%=detailtvData.keywords[i].id%>/tv"><%=detailtvData.keywords[i].name%></a>
+							<% } %>
+						<% } else{ %>
+							<h3 class="blank_txt">No keywords have been added.</h3>
+						<% } %>
+					</div>
+				</div>
+			</div>

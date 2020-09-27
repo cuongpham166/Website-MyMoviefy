@@ -1,0 +1,50 @@
+<%- include ('../partials/header.ejs');  -%>
+<div class="imdb_container">
+	<div class="imdb_rank--left">
+		<div class="latest_wrapper">
+			<h1 id="imdb_title">Top Rated Movies</h1>
+			<div class="form-group">
+				<label for="mySelect">IMDb Charts</label>
+					<select class="form-control" id="select_imdb" onchange="selectImdbChart()">
+						<option disabled selected value>Select an option</option>
+					    <option value = "/movie/top-rated">Top Rated Movies</option>
+					    <option value = "/movie/popular">Most Popular Movies</option>
+					    <option value = "/movie/lowest-rated">Lowest Rated Movies</option>
+					    <option value = "/tv/top-rated">Top Rated TV Shows</option>
+					    <option value = "/tv/popular">Most Popular TV Shows</option>
+					</select>
+			</div>
+		</div>
+		<div class="imdb_container">
+			<table class="imdb_table" id="imdb_table_data">
+				<thead class="table_header">
+					<tr class="imdb_row">
+						<th class="imdb_header">Rank</th>
+						<th class="imdb_header"></th>
+						<th class="imdb_header">Name</th>
+						<th class="imdb_header">Year</th>
+						<th class="imdb_header">Rating</th>
+					</tr>
+				</thead>
+				<tbody id="imdb_tbody" class="table_body">
+					<%for (var i=0;i<imdbData.length;i++){%>
+					<tr class="imdb_row">
+						<td class="imdb_cell"><%=i+1%></td>
+						<td class="imdb_cell">
+							<a href="<%=imdbData[i].url%>" target="_blank" class="boxoffice_link">
+								<img src="<%=imdbData[i].img%>" alt="placeholder"></td>
+							</a>
+						<td class="imdb_cell">
+							<a href="<%=imdbData[i].url%>" target="_blank" class="boxoffice_link"><%=imdbData[i].name%></a>
+						</td>
+						<td class="imdb_cell"><%=imdbData[i].year%></td>
+						<td class="imdb_cell"><%=imdbData[i].rating%></td>
+					</tr>
+					<%}%>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
+<%- include ('../partials/footer.ejs');  -%>

@@ -1,0 +1,207 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="thread_header">
+	<h1 class="thread_headline">Topics</h1>
+</div>
+
+<div class="thread_new">
+	<a href="/forum/topic/new" class="thread_modal_btn">
+		<i class="fas fa-plus headline_icon"></i>
+		<span>New Topic</span>
+	</a>
+</div>
+
+<div class="news_container discussion_container">
+	<div class="forum_container--left">
+		<ul class="thread_list">
+			<% for (let i=0;i<topic.length;i++){%>
+				<li class="thread_element" data-thread-id="<%=topic[i]._id%>">
+					<div class="thread_container">
+						<h4 class="thread_author">Posted by @<%=topic[i].author.username%> <%=moment(topic[i].date).fromNow()%></h4>
+						<div class="thread_section--top">
+							<h4 class="thread_categorie"><%=topic[i].categorie%></h4>
+							<h4 class="thread_subforum"><%=topic[i].subforum%></h4>
+						</div>
+						<div class="thread_section--main">
+						<a href="/forum/topic/<%=topic[i]._id%>/post">
+							<h3 class="thread_title"><%=topic[i].title%></h3>
+						</a>
+						</div>
+						<div class="thread_seciton--bottom">
+							<div class="thread_bottom--left">
+							<span class="thread_btn">
+								<% if(currentUser){%>
+									<span class="thread_icon like_thread_button">
+										<i class="fas fa-heart like_thread_icon"></i>
+								    </span>
+								<%}else{%>
+									<span class="thread_icon like_thread_button" onclick="window.location.href='/login'">
+										<i class="fas fa-heart like_thread_icon" style="color:#585858"></i>
+									</span>
+								<%}%>
+								<h4 class="thread_subtxt like_thread_text"><%=topic[i].like.length%></h4>
+							</span>
+
+							<span class="thread_btn">
+								<span class="thread_icon"><i class="fas fa-comments"></i></span>
+								<a href="/forum/topic/<%=topic[i]._id%>/post">
+									<% if(topic[i].post.length > 0){%>
+										<h4 class="comment_thread_subtxt"><%=topic[i].post.length%> Comments</h4>
+									<%}else{%>
+										<h4 class="comment_thread_subtxt"><%=topic[i].post.length%> Comment</h4>
+									<%}%>
+								</a>
+							</span>
+
+							<span class="thread_btn">
+								<% if(currentUser){%>
+									<span class="thread_icon follow_thread_button">
+										<i class="fas fa-bookmark follow_thread_icon"></i>
+									</span>
+									<h4 class="thread_subtxt follow_thread_text">Follow</h4>
+								<%}else{%>
+									<span class="thread_icon follow_thread_button" onclick="window.location.href='/login'">
+										<i class="fas fa-bookmark follow_thread_icon" style="color:#585858"></i>
+									</span>
+									<h4 class="thread_subtxt follow_thread_text">Follow</h4>						
+								<%}%>
+							</span>
+							
+							</div>
+						</div>
+
+						<% if(currentUser){%>
+							<div class="thread_btn_container">
+								<a href="/forum/topic/<%=topic[i]._id%>/edit" class="thread_btn--edit">Edit Topic</a>
+								<a href="#" class="thread_btn--delete delete_thread_button">Delete Topic</a>
+							</div>
+						<%}%>
+
+					</div>
+				</li>
+			<%}%>
+		</ui>
+
+
+		
+		
+
+	</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="forum_container--right">
+		<div class="statistic_panel">
+			<div class="panel_title" style="border-bottom: none;">
+				<h3>About Forum</h3>
+				<span><i class="fas fa-arrow-down statistic_panel_button"></i></span>
+			</div>
+			<ul class="panel_section--main statistic_list">
+				<li class="statistic_content">
+					<span class="content_title">Total Members</span>
+					<span class="content_number"><%=topicData.total_member%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Total Topics</span>
+					<span class="content_number"><%=topicData.topic.length%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Total Comments</span>
+					<span class="content_number"><%=topicData.total_comment%></span>
+				</li>
+				<li class="statistic_content">
+						<span class="content_title">Total Likes</span>
+						<span class="content_number"><%=topicData.total_like%></span>
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Latest Topic</span>
+					<%if(topicData.topic.length > 0){%>
+						<span class="content_number"><%=moment((topicData.topic[topicData.topic.length-1]).date).fromNow()%></span>
+					<%}else{%>
+						<span class="content_number">N/A</span>
+					<%}%>
+					
+				</li>
+				<li class="statistic_content">
+					<span class="content_title">Posted By</span>
+					<%if(topicData.topic.length > 0){%>
+						<span class="content_number"><%=topicData.topic[topicData.topic.length-1].author.username%></span>
+					<%}else{%>
+						<span class="content_number">N/A</span>
+					<%}%>
+				</li>
+			</ul>
+		</div>
+		<div class="statistic_panel">
+			<div class="panel_title" style="border-bottom: none;">
+				<h3>Filter</h3>
+				<span><i class="fas fa-arrow-down statistic_panel_button"></i></span>
+			</div>
+			<div class="panel_section--main statistic_list">
+				<div class="filter_card">
+					<div class="filter_card_container">
+						<h4 class="filter_title">Subforum</h4>
+						<select id="subforum_value" class="forum_select">
+							<option disabled="" selected="" value="">Select an option</option>
+							<option value="">None Selected</option>
+							<option value="mfy/movie">mfy/movie</option>
+							<option value="mfy/tvshow">mfy/tvshow</option>
+						</select>
+					</div>
+				</div>
+				<div class="filter_card">
+					<div class="filter_card_container">
+						<h4 class="filter_title">Categorie</h4>
+						<select id="forumcategorie_value" class="forum_select">
+							<option disabled="" selected="" value="">Select an option</option>
+							<option value="">None Selected</option>
+							<option value="1">Action</option>
+							<option value="2">Comedy</option>
+						</select>
+					</div>
+				</div>
+				<div class="filter_card">
+					<div class="filter_card_container">
+						<div class="submitBtn">
+							<input type="submit" value="Search" id="filterSubBtn">
+							<input type="submit" value="Clear All" id="clearSubBtn">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</div>
+
+</div>
+
+
+
+
+<script type="text/javascript" src="/js/forumLogic.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

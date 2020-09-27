@@ -1,0 +1,116 @@
+<%- include ('../partials/header.ejs');  -%>
+
+
+<div class="profile_container">
+	<%- include ('../partials/profile/sidebar.ejs');  -%>
+
+	<div class="profile_main">
+		<div class="main_container">
+			<div class="title-section">
+				<h2 class="main_title">Your Watchlist</h2>
+				<input type="text" placeholder="What are you looking for ?" class="profile_searchbar" id="watchlist_searchbar">
+			</div>
+
+			<div class="panel_section">
+				<div class="panel_title">
+					<h3>Sort & Filter</h3>
+					<span id="panel_btn"><i class="fas fa-arrow-down" id="panel_icon"></i></span>
+				</div>
+				<div class="panel_main">
+					<div class="panel_main_container">
+						<div class="panel_main_wrapper">
+							<div class="panel_main_sort">
+								<h4 class="main_sort_title">Sort By</h4>
+								<div class="main_sort_main">
+									<select name="sort" class="select_sort" id="selectSort">
+										<option value="" disabled>Select an option</option>
+										<option value="default">Default</option>
+										<option value="title.1">Titel (A-Z)</option>
+										<option value="title.-1">Titel (Z-A)</option>
+										<option value="media_type.1">Media Type Ascending</option>
+										<option value="media_type.-1">Media Type Descending</option>
+										<option value="added_date.-1">Newest Added</option>
+										<option value="added_date.1">Oldest Added</option>
+									</select>
+								</div>
+							</div>
+							<div class="panel_main_filter">
+								<h4 class="main_filter_title">Filter</h4>
+								<div class="main_filter_main">
+									<div class="radio_content">
+										<input type="radio" name="media_genre" class="radio_button" value="default">
+										<label for="media_genre" class="media_genre_label">All</label>
+									</div>
+									<% for (let i=0;i<genreArray.length;i++) {%>
+										<div class="radio_content">
+											<input type="radio" name="media_genre" value="<%=genreArray[i]%>" class="radio_button">
+											<label for="media_genre" class="media_genre_label"><%=genreArray[i]%></label>
+										</div>
+									<%}%>
+								</div>
+							</div>
+						</div>
+						<div class="pannel_button_container">
+							<button type="button" id="search_watchlist" class="search_profile_btn">Search</button>
+							<button type="button" id="reset_profile" class="reset_profile_btn">Reset</button>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="profile_card_section">
+			<% for (let i=0;i<watchlistMovie.length;i++){%>
+				<div class="profile_card_list">
+					<div class="card_section--left">
+						<img src="https://image.tmdb.org/t/p/w500/<%=watchlistMovie[i].mediaPoster%>">
+					</div>
+					<div class="card_section--right">
+						<div class="profile_card_container">
+							<div class="card_header">
+								<h1 class="media_name"><%=watchlistMovie[i].mediaName%></h1>
+								<h2 class="media_vote"><%=watchlistMovie[i].mediaVoteAverage%></h2>
+							</div>
+
+							<div class="card_subheader">
+								<% if (watchlistMovie[i].mediaRuntime !== "") {%>
+									<h4 class="media_runtime"><%=watchlistMovie[i].mediaRuntime%> min</h4>
+								<%}%>
+								<h4 class="media_genre">
+									<% for (let j=0;j<watchlistMovie[i].mediaGenre.length;j++){%>
+										<span><%=watchlistMovie[i].mediaGenre[j]%></span>
+									<%}%>
+								</h4>
+								<h4 class="media_releasedate"><%=watchlistMovie[i].mediaReleaseDate%></h4>
+							</div>
+
+							<h3 class="media_tagline"><%=watchlistMovie[i].mediaTagline%></h3>
+							<p class="media_overview"><%=watchlistMovie[i].mediaOverview%></p>
+							<a href="<%=watchlistMovie[i].mediaURL%>" target="_blank"  class="media_link">More Detail</a>
+							<h2 class="media_added">Added <%=moment(watchlistMovie[i].date).fromNow()%></h2>
+						</div>
+					</div>
+				</div>
+			<%}%>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/profileLogic.js"></script>
+<script type="text/javascript" src="/js/profileWatchlistLogic.js"></script>
+<%- include ('../partials/footer.ejs');  -%>

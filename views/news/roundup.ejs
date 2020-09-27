@@ -1,0 +1,80 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="news_container">
+	<div class="news_section news_section--left">
+		<div class="section_title"><h1>Weekly Roundup</h1></div>
+		<div class="section_container">
+		<%for (var i=0;i<weeklyRoundup.length;i++){%>
+			<div class="news_card">
+				<div class="card_container">
+					<a href="<%=weeklyRoundup[i].url%>" target="_blank" class="card_link">
+						<img src="<%=weeklyRoundup[i].img%>" alt="placeholder">
+					</a>
+					<a href="<%=weeklyRoundup[i].url%>" target="_blank" class="card_link">
+						<h3 class="card_title"><%=weeklyRoundup[i].title%></h3>
+					</a>
+					<p class="card_date"><%=weeklyRoundup[i].date%></p>
+				</div>
+			</div>
+		<%}%>
+		</div>
+	</div>
+
+	<div class="news_section news_section--right">
+		<div class="movie_news">
+			<div class="section_title--right"><h1>Movie News</h1></div>
+			<%for (var i=0;i<movieNews.length;i++){%>
+				<div class="news_card card_right news_movie_card">
+					<div class="container">
+						<a href="<%=movieNews[i].url%>" class="card_link">
+							<h3 class="card_title--right"><%=movieNews[i].title%></h3>
+						</a>
+						<a href="<%=movieNews[i].authorUrl%>" target="_blank" class="card_link">
+							<p class="card_paragraph">
+								<%=movieNews[i].text%>
+							</p>
+						</a>
+						<a href="<%=movieNews[i].authorUrl%>" target="_blank" class="card_link">
+							<h4 class="card_author">By <%=movieNews[i].author%></h4>
+						</a>
+
+					</div>
+
+				</div>
+			<%}%>
+			<a href="javascript:void(0)" id ="expand_movie_news" class="hide">See more</a>
+		</div>
+
+
+
+
+
+		<div class="tv_news">
+			<div class="section_title--right"><h1>TV News</h1></div>
+			<%for (var i=0;i<tvNews.length;i++){%>
+				<div class="news_card card_right news_tv_card">
+					<div class="container">
+						<a href="<%=tvNews[i].url%>" target="_blank" class="card_link">
+							<h3 class="card_title--right"><%=tvNews[i].title%></h3>
+						</a>
+						<a href="<%=tvNews[i].url%>" target="_blank" class="card_link">
+							<p class="card_paragraph">
+								<%=tvNews[i].text%>
+							</p>
+						</a>
+						<a href="<%=tvNews[i].authorUrl%>" class="card_link">
+							<h4 class="card_author">By <%=tvNews[i].author%></h4>
+						</a>
+
+					</div>
+
+				</div>
+			<%}%>
+			<a href="javascript:void(0)" id ="expand_tv_news" class="hide">See more</a>
+
+
+		</div>
+
+	</div>
+</div>
+<%- include ('../partials/footer.ejs');  -%>

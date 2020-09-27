@@ -1,0 +1,280 @@
+.news_container{
+	margin: var(--margin-center);
+    max-width: var(--maxWidth-nav);
+    display: flex;
+    flex-flow:row wrap-reverse;
+    margin-top: 40px;
+    padding:0 12px;
+}
+
+.news_section--left{
+	width: 60%;
+}
+
+
+.news_section--right{
+	width: 35%;
+    margin-left: 40px;
+}
+
+.section_title h1,.section_title--right h1,h3.card_title ,p.card_date,h4.card_author,p.card_paragraph,h3.card_title--right{
+    margin: 0;
+    padding: 0;	
+    color: white;
+}
+
+.section_title h1,.section_title--right h1{
+    line-height: 1.6;
+    font-size: var(--h2);
+    display: inline-block;
+    color: var(--yellow);
+    border-left: 4px solid var(--white);
+    padding-left: 7px;
+}
+
+
+
+.news_section--left .section_container{
+	display: grid;
+	grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    background: none;
+}
+
+a.card_link{
+	text-decoration: none;
+}
+
+.news_card {
+    height: 100%;
+    background: var(--darkgray);
+}
+
+.card_container a.card_link img{
+	width: 200px;
+	height: 110px;
+}
+
+.card_container {
+    padding: 12px;
+}
+
+h3.card_title,p.card_paragraph,p.card_date{
+	line-height: 1.3;
+}
+
+p.card_date,h4.card_author{
+	font-weight: normal;
+}
+
+p.card_date,h4.card_author,p.card_paragraph{
+	font-size: var(--h4);
+}
+
+
+h3.card_title {
+    font-size: var(--h3);
+    margin-top:10px;
+}
+
+h4.card_author,p.card_paragraph{
+    margin-top: 5px;
+}
+
+.card_right{
+	margin-bottom: 10px;
+	padding: 12px;
+}
+
+h3.card_title--right{
+	font-size: var(--h3);
+}
+
+
+.tv_news {
+    margin-top: 50px;
+}
+
+.section_title--right{
+    margin-bottom: 10px;
+}
+
+
+.headlines_container{
+    margin: var(--margin-center);
+    max-width: var(--maxWidth-div);
+    margin-top: 20px;
+}
+
+ul.headlines_wrapper {
+    list-style: none;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+
+li.headlines_content {
+    margin-bottom: 15px;
+    background: var(--darkgray);
+    padding: 12px;
+}
+
+h4.headlines_date,h3.headlines_website,h3.headlines_title {
+    line-height: 1.3;
+    padding: 0;
+    margin: 0;    
+}
+
+h3.headlines_website{
+    font-weight: bold;
+    font-size: var(--h4); 
+}
+
+h4.headlines_date{
+    font-size: var(--h4);
+    font-weight: normal;
+    color:var(--gray);
+}
+
+h3.headlines_website,h3.headlines_title {  
+    color: var(--white);
+    margin-bottom: 5px;
+
+}
+
+h3.headlines_title{
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: var(--h3);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--white);
+
+    margin-top: 20px;
+}
+
+thead.table_header {
+    background: var(--gray);
+}
+
+tbody.table_body {
+    background: var(--darkgray);
+}
+
+tr {
+    text-align: left;
+    border-bottom: 1px solid var(--gray);
+}
+
+#rotten_tbody tr:last-child{
+    border-bottom: 0px;
+}
+
+
+td,td {
+    padding: 15px;
+}
+
+
+th {
+    padding: 10px;
+    font-weight: normal;
+}
+
+.boxoffice_container {
+    margin: 0 12px;
+    margin-top: 10px;
+}
+
+
+a.boxoffice_link{
+    text-decoration: none;
+    color: var(--white);
+}
+
+a.boxoffice_link:hover{
+    color: var(--yellow);
+}
+
+a#expand_movie_news,a#expand_tv_news,a#expand_headlines {
+    color: var(--yellow);
+}
+
+.card_title--right:hover,.headlines_title:hover,.card_title:hover{
+    color: var(--yellow)
+}
+
+.source_link {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.source_link a {
+    color:var(--yellow);
+}
+
+.section_title {
+    margin-left: 12px;
+}
+
+@media (max-width: 800px)
+{
+
+    .news_section--left {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .news_section--right {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/*@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {*/
+@media (max-width:767px){
+    table,thead,tbody,th,td,tr{
+        display: block;
+    }
+
+    .boxoffice_container {
+        margin: 0;
+    }   
+
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    td{
+        border:none;
+        position: relative;
+        padding-left: 50%;
+        border-bottom: 0.5px solid var(--semitransparent); 
+    }
+
+    td:before{
+        position: absolute;
+        left: 20px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;        
+    }
+
+    td:nth-of-type(1):before { content: "Rank"; }
+    td:nth-of-type(2):before { content: "Name"; }
+    td:nth-of-type(3):before { content: "Worldwide"; }
+    td:nth-of-type(4):before { content: "Domestic"; }
+    td:nth-of-type(5):before { content: "%"; }
+    td:nth-of-type(6):before { content: "Foreign"; }
+    td:nth-of-type(7):before { content: "%"; }
+
+
+
+}
+

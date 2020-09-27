@@ -1,0 +1,10 @@
+<% if( (detailmovData.keywords).length != 0){ %>
+	<div class="keyword_container">
+		<h3 class="keyword_title">Keywords: </h3>
+		<div class="keyword_list">
+			<% for(var i=0; i<detailmovData.keywords.length; i++) {%>
+				<a class="keyword_content" href="/keyword/<%=detailmovData.keywords[i].id%>/movie">#<%=detailmovData.keywords[i].name%></a>
+			<% } %>
+		</div>
+	</div>
+<% } %>

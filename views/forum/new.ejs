@@ -1,0 +1,35 @@
+<%- include ('../partials/header.ejs');  -%>
+<div class="form_container">
+	<div class="form_btn">
+		<h1 class="thread_form_title" id="threadTitleID">Create New Topic</h1>
+		<div class="thread_form_main">
+			<form action="/forum/topic" method="POST">
+				<label for="subforum" class="thread_form_label">Subforum</label>
+				<div class="input_container thread_input_container">
+					<select class="thread_select"  id="subforumSelectID" name="topic[subforum]"  onchange="chooseSubforum()" required>
+						<option value="mfy/movie">mfy/movie</option>
+						<option value="mfy/tvshow">mfy/tvshow</option>
+					</select>
+				</div>
+				<label for="categorie" class="thread_form_label">Categorie</label>
+				<div class="input_container thread_input_container">
+					<select class="thread_select"  id="categorieSelectID" name="topic[categorie]" required></select>
+				</div>
+				<label for="name" class="thread_form_label">Topic Name</label>
+				<div class="textarea_container thread_input_container">
+					<textarea rows="5" cols="30"  minlength="30" name="topic[name]" required></textarea>
+				</div>
+				<div class="submit_container">
+					<input class="form_submit" type="submit" value="Save">	
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+
+
+
+</div>
+<script type="text/javascript" src="/js/forumLogic.js"></script>	
+<%- include ('../partials/footer.ejs');  -%>

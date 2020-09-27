@@ -1,0 +1,12 @@
+				<h2 class="paragraph_titel info_txt">Scores</h2>
+				<div class="score_container">
+					<% if (detailtvData.vote_average !== ""){%>
+						<div class="score_card">
+							<div class="score_card_container">
+								<img src="/image/themoviedb.svg" class="score_img">
+								<h4 class="score_value"><%=detailtvData.vote_average%></h4>
+							</div>
+							<h4 class="score_subtxt">Based on <%=detailtvData.vote_count%> votes</h4>
+						</div>
+					<%}%>
+				</div>

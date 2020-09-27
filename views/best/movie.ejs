@@ -1,0 +1,35 @@
+<%- include ('../partials/header.ejs');  -%>
+<div class="rotten_container">
+	<div class="section_title1"><h1 id="imdb_title">Best Movies on <%=title%></h1></div>
+	<table class="metacritic_table">
+		<thead class="table_header">
+			<tr class="imdb_row">
+				<th class="imdb_header">Rank</th>
+				<th class="imdb_header"></th>
+				<th class="imdb_header">Name</th>
+				<th class="imdb_header">Date</th>
+				<th class="imdb_header">Metascore</th>
+				<th class="imdb_header">Userscore</th>
+			</tr>
+		</thead>
+		<tbody id="rotten_tbody" class="table_body">
+			<%for (var i=0;i<bestData.length;i++){%>
+			<tr>
+				<td class="metacritic_cell"><%=i+1%></td>
+				<td class="metacritic_cell">
+					<a href="<%=bestData[i].url%>" target="_blank" class="rotten_link"><img src="<%=bestData[i].img%>" style="height:70px"></a>
+				</td>
+				<td class="metacritic_cell"><a href="<%=bestData[i].url%>" target="_blank" class="rotten_link"><%=bestData[i].name%></a></td>
+				<td class="metacritic_cell"><%=bestData[i].date%></td>
+				<td class="metacritic_cell"><%=bestData[i].metascore%></td>
+				<td class="metacritic_cell"><%=bestData[i].userscore%></td>
+
+			</tr>
+			<%}%>
+		</tbody>
+	</table>
+</div>
+
+
+
+<%- include ('../partials/footer.ejs');  -%>

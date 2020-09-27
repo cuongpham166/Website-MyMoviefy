@@ -1,0 +1,41 @@
+<%- include ('../partials/header.ejs');  -%>
+
+<div class="detail_wrapper">
+	<div class="latest_wrapper">
+		<h1 class="info_titel info_txt"><%=detailmovData.title%></h1>
+		<div class="form-group">
+			<label for="mySelect">Number of results per page</label>
+				<select class="form-control" id="mySelect" onchange="myFunction()">
+					<option value = "<%=detailmovData.review.length%>" selected='selected'>All</option> 
+					<% for(var i=1; i < detailmovData.review.length;i++){ %>
+						<option value = <%=i%> > <%=i%> </option>
+					<%}%>  
+				</select>
+		</div>
+	</div>
+
+	<% for(var i=0; i<(detailmovData.review).length; i++) {%>
+		<div class="review_card paginate">
+			<div class="review_card_wrapper">
+				<div class="review_card_text">
+					<h3>A review by <%=detailmovData.review[i].author%></h3>
+					<p><%=detailmovData.review[i].content%></p>
+				</div>
+			</div>
+		</div>
+	<% } %>
+
+	<div id="page-nav_wrapper">
+		<div id="page-nav"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<%- include ('../partials/footerpag.ejs');  -%>

@@ -1,0 +1,27 @@
+<%- include ('../partials/header.ejs');  -%>
+
+	<div class="form_container">
+		<div class="form_title">
+			<h2>Reset Password</h2>
+		</div>
+		<div class="form_main" id="form_signin">
+			<form action="/reset/<%= token %>" method="POST">
+				<label for="password" class="form_label">New Password</label>
+				<div class="input_container">
+					<input class="form_input" type="password" id="form_password" style="border:none" name="password"  pattern=".{5,}" title="Five or more characters" required>
+					<i class="fas fa-eye" id="btn_hide_pwd"></i>
+				</div>
+				<label for="confirm" class="form_label">Confirm Password</label>
+				<div class="input_container">
+					<input class="form_input" type="password" id="form_confirm" style="border:none" name="confirm"  pattern=".{5,}" title="Five or more characters" required>
+					<i class="fas fa-eye" id="btn_hide_confirm"></i>
+				</div>
+				<div class="submit_container">
+					<input class="form_submit" type="submit" value="Update Password">	
+				</div>		
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript" src="/js/reset.js"></script> 
+<%- include ('../partials/footer.ejs');  -%>
