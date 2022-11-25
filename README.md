@@ -4,7 +4,7 @@
 - [GitHub: Source Code](https://github.com/cuongpham166/Website-MyMoviefy)
 - [Youtube: Video Demo](https://youtu.be/2j0dXwXEQSE)
 
-Moviefy is a website, where people can get all the information about movies and tv series. The data is provided by The Movie Database (TMDB) API. Moreover, they can share their opinions with others about movies and tv series and manage all their favorite ones in their account. Moviefy will provide a real-time forum, where they can create new topics, comment on existing discussions or easily interact with other comments by giving them like. Users can get additional information from other sources such as IMDb, rotten tomatoes, and Metacritic, which is provided by own-built APIs
+Moviefy is a website, where people can get all the information about movies and tv series. The data is provided by The Movie Database (TMDB) API. Moreover, they can share their opinions with others about movies and tv series and manage all their favorite ones in their account. Moviefy will provide a real-time forum, where they can create new topics, comment on existing discussions or easily interact with other comments by giving them like. Thanks to own-built APIs users can find latest news from external sources such as IMDb, rotten tomatoes, Metacritic, etc
 
 ### Technology
 ##### Backend
